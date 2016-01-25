@@ -2,6 +2,8 @@
 
 # Paramount Cookbook
 
+[![Join the chat at https://gitter.im/mburns/paramount](https://badges.gitter.im/mburns/paramount.svg)](https://gitter.im/mburns/paramount?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A Chef cookbook for running a personal computer stack.
 
 Inspired by https://github.com/al3x/sovereign
