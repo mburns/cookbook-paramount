@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: paramount
-# Recipe:: clamav
+# Recipe:: owncloud
 #
 # Copyright (C) 2015 Michael Burns
 #
@@ -17,26 +17,18 @@
 # limitations under the License.
 #
 
-include_recipe 'paramount::amavis'
+# node.default['owncloud']['admin']['pass'] = ''
+# node.default['owncloud']['config']['dbpassword'] = ''
+# node.default['owncloud']['database']['rootpassword'] = ''
 
-node.default['clamav']['clamd']['enabled'] = true
-node.default['clamav']['freshclam']['enabled'] = true
-node.default['clamav']['scan']['script']['enable'] = true
-node.default['clamav']['scan']['minimal']['enable'] = true
+node.default['owncloud']['server_name'] = node['paramount']['domain']
+node.default['owncloud']['config']['dbtype'] = 'pgsql'
+# node.default['owncloud']['ssl'] = true
 
-include_recipe 'clamav'
+# ssl cert
+# node.default['owncloud']['ssl_key']
+# node.default['owncloud']['ssl_cert']
 
-# TODO : make more platform-independent
-package 'clamav-daemon'
+# node.default['owncloud']['config']
 
-# Add user clamav to amavis group to make them play together!
-group 'amavis' do
-  members ['clamav']
-  append true
-end
-
-service 'clamav' do
-  service_name 'clamav-daemon'
-  supports status: true, restart: true, reload: true
-  action %i(enable restart)
-end
+include_recipe 'owncloud'
