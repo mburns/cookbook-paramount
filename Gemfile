@@ -57,3 +57,5 @@ group :integration do
   gem 'kitchen-vagrant'
   gem 'test-kitchen'
 end
+gem 'minitar', '>= 0.6.1'
+gem 'nokogiri', '>= 1.7.1'
