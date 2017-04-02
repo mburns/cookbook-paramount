@@ -513,6 +513,8 @@ DEPENDENCIES
   jsonlint
   kitchen-vagrant
   mime-types
+  minitar (>= 0.6.1)
+  nokogiri (>= 1.7.1)
   pry
   rake (~> 11)
   rspec
@@ -528,6 +530,5 @@ DEPENDENCIES
 
 RUBY VERSION
    ruby 2.4.0p0
-
 BUNDLED WITH
    1.14.6
