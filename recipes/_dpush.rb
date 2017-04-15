@@ -19,7 +19,7 @@ package 'd-push'
 
 # a2enconf d-push.conf
 
-template '/etc/d-push/config.php' do
+cookbook_file '/etc/d-push/config.php' do
   source 'dpush.php'
 end
 
