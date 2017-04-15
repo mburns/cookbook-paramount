@@ -86,31 +86,3 @@ depends 'ubuntu'
 depends 'users'
 depends 'yum'
 depends 'yum-epel'
-
-attribute 'paramount/domain',
-          display_name: 'Domain',
-          description: 'Domain Name',
-          type: 'string',
-          required: 'optional',
-          default: 'example.com'
-
-attribute 'paramount/user',
-          display_name: 'Username',
-          description: 'Default Username',
-          type: 'string',
-          required: 'optional',
-          default: 'admin'
-
-attribute 'paramount/organization',
-          display_name: 'Organization',
-          description: 'Organization',
-          type: 'string',
-          required: 'optional',
-          default: 'Example'
-
-attribute 'paramount/contact',
-          display_name: 'Contact',
-          description: 'E-mail contact address',
-          type: 'string',
-          required: 'optional',
-          default: 'postmaster@example.com'
