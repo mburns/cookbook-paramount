@@ -6,6 +6,8 @@
 # License:: Apache License, Version 2.0
 #
 
+Chef::Log.info("[EMAIL] :: #{recipe_name}")
+
 # node.default['roundcube']['default_host'] = ''
 
 # node.default['roundcube']['support_url'] = ''

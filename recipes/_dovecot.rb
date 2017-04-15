@@ -6,6 +6,8 @@
 # License:: Apache License, Version 2.0
 #
 
+Chef::Log.info("[EMAIL] :: #{recipe_name}")
+
 # logic borrowed from zuazo's postfix-dovecot-cookbook::dovecot
 # TODO : install pigeonhole
 

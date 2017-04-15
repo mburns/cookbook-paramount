@@ -6,6 +6,8 @@
 # License:: Apache License, Version 2.0
 #
 
+Chef::Log.info("[PARAMOUNT] :: #{recipe_name}")
+
 include_recipe 'openldap::auth'
 
 node.default['openldap']['manage_ssl'] = true

@@ -6,6 +6,8 @@
 # License:: Apache License, Version 2.0
 #
 
+Chef::Log.info("[EMAIL] :: #{recipe_name}")
+
 include_recipe 'paramount::_amavis'
 
 # Required_score is set to 5 by default, change it:

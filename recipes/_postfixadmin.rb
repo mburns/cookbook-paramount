@@ -6,6 +6,8 @@
 # License:: Apache License, Version 2.0
 #
 
+Chef::Log.info("[EMAIL] :: #{recipe_name}")
+
 include_recipe 'paramount::_postfix'
 
 node.default['postfixadmin']['database']['type'] = 'postgresql'

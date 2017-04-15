@@ -6,6 +6,8 @@
 # License:: Apache License, Version 2.0
 #
 
+Chef::Log.info("[EMAIL] :: #{recipe_name}")
+
 opendkim_port = node['paramount']['dkim_port']
 
 # Configure Postfix
