@@ -6,6 +6,8 @@
 # License:: Apache License, Version 2.0
 #
 
+Chef::Log.info("[EMAIL] :: #{recipe_name}")
+
 include_recipe 'paramount::_amavis'
 
 node.default['clamav']['clamd']['enabled'] = true
@@ -19,6 +21,13 @@ package 'clamav-daemon'
 include_recipe 'clamav'
 
 group 'amavis' do
+  action :modify
+  members ['clamav']
+  append true
+end
+
+group 'clamav' do
+  action :modify
   members ['clamav']
   append true
 end
