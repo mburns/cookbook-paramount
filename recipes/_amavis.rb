@@ -15,7 +15,6 @@ user 'amavis' do
 end
 
 group 'amavis' do
-  action :modify
   members ['amavis']
   append true
 end
