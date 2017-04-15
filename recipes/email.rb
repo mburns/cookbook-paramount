@@ -62,13 +62,13 @@ group 'vmail' do
   append true
 end
 
-include_recipe 'paramount::dovecot'
-include_recipe 'paramount::amavis'
-include_recipe 'paramount::clamav'
-include_recipe 'paramount::spamassassin'
-include_recipe 'paramount::postfix'
-include_recipe 'paramount::dkim'
+include_recipe 'paramount::_dovecot'
+include_recipe 'paramount::_amavis'
+include_recipe 'paramount::_clamav'
+include_recipe 'paramount::_spamassassin'
+include_recipe 'paramount::_postfix'
+include_recipe 'paramount::_dkim'
 
 include_recipe 'dspam'
 
-include_recipe 'paramount::roundcube' if node.run_list.include?('paramount::_web')
+include_recipe 'paramount::_roundcube' if node.run_list.include?('paramount::web')

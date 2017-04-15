@@ -8,4 +8,4 @@
 
 # include_recipe 'chef_nginx'
 
-include_recipe 'paramount::wallabag'
+include_recipe 'paramount::_wallabag'
