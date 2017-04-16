@@ -86,9 +86,9 @@ include_recipe 'roundcube::configure'
 # end
 
 # https://raw.githubusercontent.com/xhost-cookbooks/roundcube/master/templates/default/nginx_vhost.erb
-# nginx_site node['roundcube']['server_name'] do
-#   variables(
-#     base_dir: "#{node['roundcube']['install_dir']}/roundcube"
-#   )
-#   enable true
-# end
+nginx_site node['roundcube']['server_name'] do
+  variables(
+    base_dir: "#{node['roundcube']['install_dir']}/roundcube"
+  )
+  enable true
+end

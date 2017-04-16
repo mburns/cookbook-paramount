@@ -27,8 +27,8 @@ ark 'wallabag' do
   action :install
 end
 
-# nginx_site 'wallabag' do
-#   enable true
-# end
+nginx_site 'wallabag' do
+  enable true
+end
 
 # db
