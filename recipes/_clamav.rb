@@ -15,7 +15,6 @@ node.default['clamav']['freshclam']['enabled'] = true
 node.default['clamav']['scan']['script']['enable'] = true
 node.default['clamav']['scan']['minimal']['enable'] = true
 
-# TODO : make more platform-independent
 package 'clamav-daemon'
 
 include_recipe 'clamav'
@@ -28,7 +27,7 @@ end
 
 group 'clamav' do
   action :modify
-  members ['clamav']
+  members %w[clamav amavis]
   append true
 end
 

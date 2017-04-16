@@ -21,5 +21,9 @@ describe 'paramount::_clamav' do
     end
   end
 
+  it 'creates clamav group with an explicit action' do
+    expect(chef_run).to modify_group('clamav')
+  end
+
   # poise_service[clamav]
 end

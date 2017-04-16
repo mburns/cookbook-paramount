@@ -19,12 +19,6 @@ group 'amavis' do
   append true
 end
 
-group 'clamav' do
-  action :modify
-  members ['amavis']
-  append true
-end
-
 %w[
   01-debian
   05-domain_id
