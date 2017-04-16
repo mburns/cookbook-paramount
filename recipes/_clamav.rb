@@ -10,11 +10,6 @@ Chef::Log.info("[EMAIL] :: #{recipe_name}")
 
 include_recipe 'paramount::_amavis'
 
-node.default['clamav']['clamd']['enabled'] = true
-node.default['clamav']['freshclam']['enabled'] = true
-node.default['clamav']['scan']['script']['enable'] = true
-node.default['clamav']['scan']['minimal']['enable'] = true
-
 package 'clamav-daemon'
 
 include_recipe 'clamav'

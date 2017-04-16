@@ -8,14 +8,13 @@
 
 include_recipe 'ntp'
 
-automatic_updates 'default' do
-  action :enable
-end
+# automatic_updates 'default' do
+#   action :enable
+# end
 
 include_recipe 'build-essential'
 include_recipe 'packages'
 
-# include_recipe 'sysctl'
 include_recipe 'ubuntu'
 
 include_recipe 'sudo'
@@ -27,7 +26,6 @@ include_recipe 'users::sysadmins'
 include_recipe 'rsyslog'
 
 include_recipe 'djbdns::cache'
-# include_recipe 'xml'
 
 include_recipe 'openssh'
 

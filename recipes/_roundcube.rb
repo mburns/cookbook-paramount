@@ -8,14 +8,6 @@
 
 Chef::Log.info("[EMAIL] :: #{recipe_name}")
 
-# node.default['roundcube']['default_host'] = ''
-
-# node.default['roundcube']['support_url'] = ''
-# node.default['roundcube']['product_name'] = ''
-# node.default['roundcube']['listen_port'] = '80'
-
-node.default['roundcube']['database']['host'] = '127.0.0.1'
-node.default['roundcube']['database']['user'] = 'roundcube_db'
 
 include_recipe 'encrypted_attributes'
 
@@ -35,10 +27,7 @@ end
 
 Chef::Log.info("RoundCube password: #{roundcube_passwd}")
 
-# node.default['roundcube']['database']['schema'] = ''
-
 node.default['roundcube']['smtp']['server'] = "mail.#{node['paramount']['domain']}"
-node.default['roundcube']['smtp']['user'] = 'postfix'
 
 if Chef::EncryptedAttribute.exist?(node['roundcube']['smtp']['password'])
   # update with the new keys
@@ -80,10 +69,10 @@ openssl_x509 '/etc/httpd/ssl/roundcube.pem' do
 end
 
 include_recipe 'php-fpm'
-# include_recipe 'chef_nginx'
+include_recipe 'chef_nginx'
 
-# include_recipe 'roundcube::install'
-# include_recipe 'roundcube::configure'
+include_recipe 'roundcube::install'
+include_recipe 'roundcube::configure'
 
 # php_fpm_pool node['roundcube']['php-fpm']['pool'] do
 #   user node['nginx']['user']

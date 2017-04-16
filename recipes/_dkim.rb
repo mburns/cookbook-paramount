@@ -14,13 +14,7 @@ opendkim_port = node['paramount']['dkim_port']
 main_domain = node['paramount']['domain']
 selector = '20150615' # TODO : explain
 
-node.default['opendkim']['conf']['MinimumKeyBits'] = '1024'
-node.default['opendkim']['conf']['Mode'] = 'sv'
-node.default['opendkim']['conf']['OversignHeaders'] = 'From'
 node.default['opendkim']['conf']['Socket'] = "inet:#{opendkim_port}@localhost"
-node.default['opendkim']['conf']['Syslog'] = true
-node.default['opendkim']['conf']['SyslogSuccess'] = true
-node.default['opendkim']['conf']['UMask'] = '002'
 
 key_table_default = node.set['opendkim']['conf']['KeyTable']
 key_table_default["csl:#{selector}._domainkey.#{main_domain}"] = "#{main_domain}:mail:/etc/opendkim/keys/#{main_domain}/#{selector}.private"
