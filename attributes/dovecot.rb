@@ -6,7 +6,6 @@
 # License:: Apache License, Version 2.0
 #
 
-
 default['dovecot']['auth']['checkpassword'] = {}
 
 default['dovecot']['conf']['disable_plaintext_auth'] = true

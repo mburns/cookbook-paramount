@@ -14,4 +14,3 @@ default['opendkim']['conf']['OversignHeaders'] = 'From'
 default['opendkim']['conf']['Syslog'] = true
 default['opendkim']['conf']['SyslogSuccess'] = true
 default['opendkim']['conf']['UMask'] = '002'
-

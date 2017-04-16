@@ -22,4 +22,3 @@ default['spamassassin']['spamd']['options'] = %w[
   --max-children 3
   --helper-home-dir
 ]
-

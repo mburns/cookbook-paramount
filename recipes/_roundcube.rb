@@ -8,7 +8,6 @@
 
 Chef::Log.info("[EMAIL] :: #{recipe_name}")
 
-
 include_recipe 'encrypted_attributes'
 
 Chef::Recipe.send(:include, OpenSSLCookbook::RandomPassword)
