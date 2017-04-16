@@ -70,8 +70,8 @@ end
 include_recipe 'php-fpm'
 include_recipe 'chef_nginx'
 
-include_recipe 'roundcube::install'
-include_recipe 'roundcube::configure'
+# include_recipe 'roundcube::install'
+# include_recipe 'roundcube::configure'
 
 # php_fpm_pool node['roundcube']['php-fpm']['pool'] do
 #   user node['nginx']['user']
@@ -90,5 +90,5 @@ nginx_site node['roundcube']['server_name'] do
   variables(
     base_dir: "#{node['roundcube']['install_dir']}/roundcube"
   )
-  enable true
+  action :enable
 end

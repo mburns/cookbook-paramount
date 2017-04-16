@@ -33,13 +33,13 @@ cookbook 'opendkim', '~> 2.0'
 cookbook 'onddo-spamassassin', '~> 1.1'
 cookbook 'postfix', '~> 4.0'
 cookbook 'postfixadmin', '~> 3.0'
-# cookbook 'roundcube', github: 'mburns/roundcube.git', branch: 'support-p'
+# cookbook 'roundcube', github: 'mburns/roundcube', branch: 'chef_nginx'
 cookbook 'solr_app', '~> 0.0'
 
 ## Monitoring & Logs
 cookbook 'collectd-lib'
-cookbook 'elkstack', '~> 6.0'
-cookbook 'kibana_lwrp', '~> 2.0'
+cookbook 'elkstack', github: 'mburns/elkstack', branch: 'chef_nginx'
+cookbook 'kibana_lwrp', github: 'lusis/chef-kibana'
 cookbook 'logrotate', '~> 1.9' # clamav requires 1.x
 cookbook 'logstash', '~> 0.12.0'
 cookbook 'rackspace_monitoring'

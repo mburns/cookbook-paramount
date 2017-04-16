@@ -25,14 +25,19 @@ DEPENDENCIES
   dspam
     git: https://github.com/mburns/chef-dspam.git
     revision: eaec659e4387942c129134281af1c2dd59e3e3c0
-  elkstack (~> 6.0)
+  elkstack
+    git: https://github.com/mburns/elkstack.git
+    revision: e89cc8c115a3d947b4c3d742521f0217fc9dd66a
+    branch: chef_nginx
   encrypted_attributes (~> 0.6.0)
   fail2ban (~> 2.3)
   firewall (~> 2.5)
   hostname (~> 0.4)
   hostsfile (~> 2.4)
   java
-  kibana_lwrp (~> 2.0)
+  kibana_lwrp
+    git: https://github.com/lusis/chef-kibana.git
+    revision: ff552bf85d99884d89b9db669b2901d31c7ac8ad
   ldap (~> 1.1)
   logrotate (~> 1.9)
   logstash (~> 0.12.0)
@@ -147,10 +152,11 @@ GRAPH
   dspam (0.2.0)
   elasticsearch (0.3.14)
     ark (>= 0.2.4)
-  elkstack (6.0.4)
+  elkstack (6.0.5)
     apt (>= 0.0.0)
     build-essential (>= 0.0.0)
     chef-sugar (>= 0.0.0)
+    chef_nginx (>= 0.0.0)
     cron (>= 0.0.0)
     elasticsearch (~> 0.3.14)
     firewall (>= 2.0.1)
@@ -159,7 +165,6 @@ GRAPH
     line (>= 0.0.0)
     logstash (>= 0.0.0)
     newrelic_meetme_plugin (>= 0.0.0)
-    nginx (>= 0.0.0)
     openssl (>= 0.0.0)
     python (>= 0.0.0)
     rackspace_monitoring (>= 0.0.0)
@@ -192,14 +197,15 @@ GRAPH
     apt (>= 0.0.0)
     homebrew (>= 0.0.0)
     windows (>= 0.0.0)
-  kibana_lwrp (2.0.6)
+  kibana_lwrp (3.0.2)
     apache2 (>= 0.0.0)
     ark (>= 0.0.0)
+    chef_nginx (>= 0.0.0)
+    compat_resource (>= 0.0.0)
     git (>= 0.0.0)
     java (>= 0.0.0)
     libarchive (>= 0.0.0)
-    nginx (>= 0.0.0)
-    poise (>= 0.0.0)
+    ohai (>= 0.0.0)
     runit (>= 0.0.0)
   ldap (1.1.0)
   libarchive (1.0.0)
@@ -242,12 +248,6 @@ GRAPH
   newrelic_meetme_plugin (0.5.0)
     apt (>= 0.0.0)
     python (>= 0.0.0)
-    yum (>= 0.0.0)
-  nginx (1.8.0)
-    apt (>= 0.0.0)
-    build-essential (>= 0.0.0)
-    ohai (>= 1.1.4)
-    runit (>= 0.0.0)
     yum (>= 0.0.0)
   nscd (5.0.0)
   ntp (3.3.1)
@@ -311,6 +311,7 @@ GRAPH
     plexapp (>= 0.0.0)
     poise-service (>= 0.0.0)
     postfix (>= 0.0.0)
+    postfixadmin (>= 0.0.0)
     prosody (>= 0.0.0)
     rkhunter (>= 0.0.0)
     rsyslog (>= 0.0.0)
