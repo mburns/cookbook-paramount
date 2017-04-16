@@ -9,18 +9,20 @@
 Chef::Log.info("[EMAIL] :: #{recipe_name}")
 
 package 'd-push'
-# package 'php5-imap'
+package 'php5-imap'
 
 # php5enmod imap
 
-# cookbook_file '/etc/apache2/conf-available/d-push.conf' do
-#   source 'apache.dpush.conf'
-# end
-
-# a2enconf d-push.conf
+nginx_site 'd-push' do
+  template 'd-push.erb'
+  action :enable
+  variables(
+    base_dir: "#{node['nginx']['log_dir']}/dpush"
+  )
+end
 
 cookbook_file '/etc/d-push/config.php' do
-  source 'dpush.php'
+  source 'd-push.php'
 end
 
 # z-push-admin.php z-push-top.php
