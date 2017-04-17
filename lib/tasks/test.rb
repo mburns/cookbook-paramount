@@ -10,12 +10,17 @@ namespace :test do
   end
 
   namespace :integration do
-    desc 'Run Integration Tests using Vagrant'
+    desc 'Run integration tests using Vagrant'
     task :vagrant do
       Kitchen.logger = Kitchen.default_file_logger
       Kitchen::Config.new.instances.each do |instance|
         instance.test(:always)
       end
+    end
+
+    desc 'Run integration tests using kitchen-docker'
+    task :docker, %i[regexp action] do |_t, args|
+      run_kitchen(args.action, args.regexp, local_config: '.kitchen.docker.yml')
     end
 
     desc 'Run integration tests using Cloud Servers'

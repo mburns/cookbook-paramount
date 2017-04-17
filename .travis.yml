@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 dist: trusty
 language: ruby
 rvm:
@@ -10,18 +10,22 @@ cache:
     - $HOME/.berkshelf/
     - $HOME/.gem/
 
+services: docker
+
 before_install:
   - gem update --system
-  - gem install bundler --no-document
-bundler_args: --without development plugins
+  - gem install bundler --no-document --without='development plugins'
 
 env:
   global:
   - TRAVIS=1 CI=1 COVERAGE=1
 
-gemfile:
-  - Gemfile
+before_script:
+  - source <(curl -sL https://raw.githubusercontent.com/zuazo/kitchen-in-travis/master/scripts/start_docker.sh)
 
 script:
-  - bundle exec rake style:all
-  - bundle exec rake test:spec
+  - travis_retry bundle exec rake style:all
+  - travis_retry bundle exec rake test:spec
+  - travis_retry bundle exec rake test:integration:docker
+
+after_failure: cat docker_daemon.log
