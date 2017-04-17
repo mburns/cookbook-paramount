@@ -24,18 +24,8 @@ include_recipe 'encrypted_attributes'
 
 Chef::Recipe.send(:include, OpenSSLCookbook::RandomPassword)
 
-if Chef::EncryptedAttribute.exist?(node['paramount']['postfix_passwd'])
-  # update with the new keys
-  Chef::EncryptedAttribute.update(node.set['paramount']['postfix_passwd'])
-
-  # read the password
-  postfix_passwd = Chef::EncryptedAttribute.load(node['paramount']['postfix_passwd'])
-else
-  # create the password and save it
-  postfix_passwd = random_password
-  node.set['paramount']['postfix_passwd'] = Chef::EncryptedAttribute.create(postfix_passwd)
-end
-
+postfix_passwd = random_password
+node.set['paramount']['postfix_passwd'] = postfix_passwd
 Chef::Log.info("Postfix password: #{postfix_passwd}")
 
 postfixadmin_admin node['paramount']['contact'] do
