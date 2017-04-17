@@ -8,9 +8,9 @@
 
 include_recipe 'ntp'
 
-# automatic_updates 'default' do
-#   action :enable
-# end
+automatic_updates 'default' do
+  action :enable
+end
 
 include_recipe 'build-essential'
 include_recipe 'packages'
