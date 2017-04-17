@@ -41,7 +41,7 @@ matrix:
   include:
   - script:
     - travis_retry bundle exec rake style:all
-    - travis_retry bundle exec rake test:spec
+    - travis_retry bundle exec rake test:unit
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )

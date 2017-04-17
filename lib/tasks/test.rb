@@ -4,7 +4,7 @@ require 'kitchen/rake_tasks'
 require_relative '../rake_helper'
 
 namespace :test do
-  RSpec::Core::RakeTask.new(:spec) do |t|
+  RSpec::Core::RakeTask.new(:unit) do |t|
     t.verbose = false if ENV['RSPEC_VERBOSE'].nil?
     t.rspec_opts = 'test/unit/'
   end
@@ -23,7 +23,7 @@ namespace :test do
       run_kitchen(args.action, args.regexp, local_config: '.kitchen.docker.yml')
     end
 
-    desc 'Run integration tests using Cloud Servers'
+    desc 'Run integration tests using The Cloud(TM)'
     task :cloud do
       Kitchen.logger = Kitchen.default_file_logger
 
@@ -50,5 +50,5 @@ namespace :test do
   end
 
   desc 'Run all tests'
-  task all: %i[spec test:integration:vagrant]
+  task all: %i[unit test:integration:vagrant]
 end

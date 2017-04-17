@@ -10,6 +10,7 @@ ruby '2.3.1'
 gem 'chef', '~> 12.9.41'
 
 group :plugins do
+  gem 'kitchen-vagrant'
   gem 'vagrant-berkshelf'
   gem 'vagrant-cachier'
   gem 'vagrant-omnibus'
@@ -48,7 +49,7 @@ group :style do
   gem 'yamllint'
 end
 
-group :spec do
+group :unit do
   gem 'berkshelf'
   gem 'chefspec'
   gem 'fauxhai'
@@ -56,12 +57,8 @@ group :spec do
   gem 'rspec-json_expectations'
 end
 
-group :kitchen_common do
+group :integration do
   gem 'test-kitchen'
-end
-
-group :kitchen_vagrant do
-  gem 'kitchen-vagrant'
 end
 
 group :kitchen_docker do
