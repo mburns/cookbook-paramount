@@ -26,13 +26,17 @@ provisioner:
 
 platforms:
   - name: ubuntu-16.04
-  run_list: recipe[apt]
+    run_list:
+      - recipe[apt]
   - name: debian-8.6
-  run_list: recipe[apt]
+    run_list:
+      - recipe[apt]
   - name: fedora-25
-  run_list: recipe[yum]
+    run_list:
+      - recipe[yum]
   - name: centos-7.3
-  run_list: recipe[yum]
+    run_list:
+      - recipe[yum]
 
 suites:
   - name: default
