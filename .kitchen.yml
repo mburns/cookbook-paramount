@@ -1,6 +1,7 @@
 ---
 driver:
   name: vagrant
+  use_sudo: false
   cachier: true
   customize:
     memory: 2048
