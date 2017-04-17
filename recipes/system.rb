@@ -8,9 +8,7 @@
 
 include_recipe 'ntp'
 
-automatic_updates 'default' do
-  action :enable
-end
+include_recipe 'apt::unattended-upgrades'
 
 include_recipe 'build-essential'
 include_recipe 'packages'
