@@ -14,7 +14,9 @@ DEPENDENCIES
   chef-vault (~> 2.1)
   chef_client_updater (~> 1.0.2)
   chef_nginx (~> 5.0)
-  clamav (~> 1.3)
+  clamav
+    git: https://github.com/RoboticCheese/clamav-chef.git
+    revision: 640894fb7b65c172cc5d9f10a85c58916e003644
   collectd-lib
   couchpotato
     git: https://github.com/multimedia-chef/couchpotato.git
@@ -40,7 +42,7 @@ DEPENDENCIES
     git: https://github.com/lusis/chef-kibana.git
     revision: ff552bf85d99884d89b9db669b2901d31c7ac8ad
   ldap (~> 1.1)
-  logrotate (~> 1.9)
+  logrotate (~> 2.1)
   logstash (~> 0.12.0)
   mosh (~> 0.4.0)
   ntp (~> 3.2)
@@ -98,7 +100,7 @@ GRAPH
     application (~> 3.0)
     java (>= 0.0.0)
     tomcat (>= 0.0.0)
-  apt (2.9.2)
+  apt (6.1.0)
   ark (2.2.1)
     build-essential (>= 0.0.0)
     seven_zip (>= 0.0.0)
@@ -130,16 +132,12 @@ GRAPH
     runit (>= 1.6.0)
     yum-epel (>= 0.0.0)
     zypper (>= 0.0.0)
-  clamav (1.3.0)
-    apt (~> 2.1)
-    cron (~> 1.2)
-    logrotate (~> 1.0)
-    yum (~> 3.0)
-    yum-epel (~> 0.2)
+  clamav (1.3.1)
   collectd-lib (3.1.0)
   compat_resource (12.16.3)
   couchpotato (0.1.0)
-  cron (1.7.6)
+  cron (4.1.1)
+    compat_resource (>= 0.0.0)
   curl (2.0.3)
   database (6.1.1)
     postgresql (>= 1.0.0)
@@ -213,7 +211,8 @@ GRAPH
   libarchive (1.0.0)
   line (0.6.3)
   locales (0.3.1)
-  logrotate (1.9.2)
+  logrotate (2.1.0)
+    compat_resource (>= 0.0.0)
   logstash (0.12.0)
     ant (>= 0.0.0)
     apt (>= 0.0.0)
@@ -422,7 +421,7 @@ GRAPH
     ohai (>= 4.0.0)
   xml (3.1.1)
     build-essential (>= 0.0.0)
-  yum (3.13.0)
+  yum (5.0.1)
   yum-epel (0.7.1)
     yum (>= 3.6.3)
   yum-scl (0.2.0)

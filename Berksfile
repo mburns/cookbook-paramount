@@ -26,7 +26,7 @@ cookbook 'ucspi-tcp'
 cookbook 'znc', '~> 0.0.1'
 
 ## Email
-cookbook 'clamav', '~> 1.3'
+cookbook 'clamav', github: 'RoboticCheese/clamav-chef'
 cookbook 'dovecot', '~> 3.0'
 cookbook 'dspam', github: 'mburns/chef-dspam'
 cookbook 'opendkim', '~> 2.0'
@@ -40,7 +40,7 @@ cookbook 'solr_app', '~> 0.0'
 cookbook 'collectd-lib'
 cookbook 'elkstack', github: 'mburns/elkstack', branch: 'chef_nginx'
 cookbook 'kibana_lwrp', github: 'lusis/chef-kibana'
-cookbook 'logrotate', '~> 1.9' # clamav requires 1.x
+cookbook 'logrotate', '~> 2.1'
 cookbook 'logstash', '~> 0.12.0'
 cookbook 'rackspace_monitoring'
 cookbook 'rsyslog', '~> 4.0'
