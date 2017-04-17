@@ -272,7 +272,7 @@ GRAPH
   packagecloud (0.3.0)
   packages (1.0.0)
   pacman (1.1.1)
-  paramount (0.1.6)
+  paramount (0.1.7)
     aide (>= 0.0.0)
     apt (>= 0.0.0)
     ark (>= 0.0.0)
