@@ -21,9 +21,11 @@ group :maintain do
 end
 
 group :development do
+  gem 'github_changelog_generator'
   gem 'guard'
   gem 'guard-foodcritic'
   gem 'guard-kitchen'
+  gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'highline', '~> 1.7.8', '>= 1.7.8' # Used for input in Rake tasks.
   gem 'thor-scmversion'
@@ -49,11 +51,19 @@ end
 group :spec do
   gem 'berkshelf'
   gem 'chefspec'
+  gem 'fauxhai'
   gem 'rspec'
   gem 'rspec-json_expectations'
 end
 
-group :integration do
-  gem 'kitchen-vagrant'
+group :kitchen_common do
   gem 'test-kitchen'
+end
+
+group :kitchen_vagrant do
+  gem 'kitchen-vagrant'
+end
+
+group :kitchen_docker do
+  gem 'kitchen-docker'
 end
