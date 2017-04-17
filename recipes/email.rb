@@ -14,32 +14,16 @@ Chef::Log.info('[EMAIL]')
 # MX  | domain.tld      | mail.domain.tld
 # A   | mail.domain.tld | <IP>
 
-# TODO : helper ruby function
 # Resolve MX records for relvant FQDNs, smtp.*, mail.*
 # %w(smtp mail imap).each do |domain|
-#   ruby_block 'resolve MX records' do
-#     block do
-#       require 'resolv'
-#       Resolv::DNS.new.getresources(node['paramount']['domain'], Resolv::DNS::Resource::IN::MX)
-#     end
-#     action :run
-#   end
+#   resolve_mx(domain + node['paramount']['domain'])
 # end
-
-include_recipe 'encrypted_attributes'
 
 Chef::Recipe.send(:include, OpenSSLCookbook::RandomPassword)
 
-if Chef::EncryptedAttribute.exist?(node['paramount']['encfs_passwd'])
-  Chef::EncryptedAttribute.update(node.set['paramount']['encfs_passwd'])
-  # encfs_pass = Chef::EncryptedAttribute.load(node['paramount']['encfs_passwd'])
-else
-  # create the password and save it
-  encfs_pass = random_password
-  node.set['paramount']['encfs_passwd'] = Chef::EncryptedAttribute.create(encfs_pass)
-end
-
-Chef::Log.info("EncFS password: #{encfs_pass}")
+# encfs_pass = random_password
+# node.set['paramount']['encfs_passwd'] = Chef::EncryptedAttribute.create(encfs_pass)
+# Chef::Log.info("EncFS password: #{encfs_pass}")
 
 directory '/data'
 
