@@ -35,6 +35,4 @@ describe 'paramount::system' do
   it 'writes sshd config' do
     expect(chef_run).to render_file('/etc/ssh/sshd_config')
   end
-
-  # automatic_updates[default]
 end
