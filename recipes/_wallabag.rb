@@ -31,4 +31,4 @@ nginx_site 'wallabag' do
   enable true
 end
 
-# db
+# TODO : db

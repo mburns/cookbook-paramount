@@ -75,4 +75,4 @@ include_recipe 'dspam'
 
 include_recipe 'paramount::_roundcube'
 # include_recipe 'paramount::_dpush' # requires apache
-include_recipe 'paramount::_automx'
+# include_recipe 'paramount::_automx' # requires php
