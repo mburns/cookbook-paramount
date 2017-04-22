@@ -1,3 +1,17 @@
----
 driver:
   name: docker
+  privileged: true
+  binary: /usr/local/bin/docker
+  use_sudo: false
+  run_command: /sbin/init
+  provision_command:
+    - mkdir -p /var/run/sshd
+
+driver_config:
+  image: ubuntu-upstart:14.04
+
+provisioner:
+  file_atomic_update: false
+
+platforms:
+  - name: ubuntu-14.04

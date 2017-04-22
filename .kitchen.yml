@@ -4,14 +4,11 @@ driver:
   use_sudo: false
   cachier: true
   customize:
-    memory: 2048
-
-driver_config:
-  require_chef_omnibus: 12.9.41
+    memory: 4096
 
 provisioner:
-  require_chef_omnibus: true
   name: chef_zero
+  require_chef_omnibus: 12.9.41
   deprecations_as_errors: true
   log_level: info
   environments_path: test/integration/environments
@@ -26,9 +23,10 @@ provisioner:
         passwordless: true
 
 platforms:
+  - name: ubuntu-14.04
+    run_list:
+      - recipe[apt]
   - name: ubuntu-16.04
-    driver_config:
-      box: bento/ubuntu-16.04
     run_list:
       - recipe[apt]
   - name: debian-8.6
