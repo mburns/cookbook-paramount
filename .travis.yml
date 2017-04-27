@@ -5,7 +5,8 @@ rvm:
   - 2.3.1
 
 cache:
-  bundler: true
+  - bundler
+  - apt
   directories:
     - $HOME/.berkshelf/
     - $HOME/.gem/
@@ -25,10 +26,12 @@ env:
   global:
   - TRAVIS=1 CI=1 COVERAGE=1
 
-# matrix:
-#   fast_finish: true
-#   include:
-#   - script:
+matrix:
+  fast_finish: true
+  include:
+  - script:
+    - travis_retry bundle exec rake style:all
+    - travis_retry bundle exec rake test:unit
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
@@ -38,8 +41,6 @@ before_script:
   - /opt/chefdk/embedded/bin/foodcritic --version
 
 script:
-  - bundle exec rake style:all
-  - bundle exec rake test:unit
   - /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
 
 after_failure: cat docker_daemon.log

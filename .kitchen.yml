@@ -32,9 +32,18 @@ platforms:
     image: ubuntu-upstart:14.04
     run_list:
       - recipe[apt]
-  # - name: ubuntu-16.04
+  - name: ubuntu-16.04
+    run_list:
+      - recipe[apt]
+  - name: debian-7.8
+    run_list:
+      - recipe[apt]
+  # - name: fedora-23
   #   run_list:
-  #     - recipe[apt]
+  #     - recipe[yum]
+  # - name: centos-7.3
+  #   run_list:
+  #     - recipe[yum]
 
 suites:
   - name: default
