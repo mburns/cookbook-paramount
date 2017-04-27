@@ -525,7 +525,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  berkshelf
+  berkshelf (~> 5.1)
   chef (~> 12.9.41)
   chef-encrypted-attributes
   chef-sugar
@@ -543,7 +543,7 @@ DEPENDENCIES
   guard-rubocop
   highline (~> 1.7.8, >= 1.7.8)
   jsonlint
-  kitchen-docker
+  kitchen-docker (~> 2.6)
   kitchen-vagrant
   mime-types
   pry
@@ -552,7 +552,7 @@ DEPENDENCIES
   rspec-json_expectations
   rubocop
   stove
-  test-kitchen
+  test-kitchen (~> 1.13)
   thor-scmversion
   vagrant-berkshelf
   vagrant-cachier
