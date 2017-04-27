@@ -24,6 +24,10 @@ before_install:
 env:
   global:
   - TRAVIS=1 CI=1 COVERAGE=1
+  matrix:
+  - INSTANCE=default-ubuntu-1404
+  - INSTANCE=default-ubuntu-1604
+  
 
 matrix:
   fast_finish: true
