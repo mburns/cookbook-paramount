@@ -26,11 +26,10 @@ provisioner:
 
 platforms:
   - name: ubuntu-14.04
-    image: ubuntu-upstart:14.04
   - name: ubuntu-16.04
-  # - name: debian-8.2
-  # - name: fedora-23
-  # - name: centos-7.3
+  - name: debian-8.7
+  - name: fedora-25
+  - name: centos-7.3
 
 suites:
   - name: default
