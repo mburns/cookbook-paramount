@@ -9,7 +9,6 @@ driver:
 provisioner:
   name: chef_zero
   require_chef_omnibus: 12.9.41
-  deprecations_as_errors: true
   log_level: info
   environments_path: test/integration/environments
   data_bags_path: test/fixtures/data_bags
@@ -29,15 +28,6 @@ platforms:
   - name: ubuntu-16.04
     run_list:
       - recipe[apt]
-  - name: debian-8.6
-    run_list:
-      - recipe[apt]
-  - name: fedora-25
-    run_list:
-      - recipe[yum]
-  - name: centos-7.3
-    run_list:
-      - recipe[yum]
 
 suites:
   - name: default
