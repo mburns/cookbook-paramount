@@ -8,6 +8,7 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'chef', '~> 12.9.41'
+gem 'berkshelf', '~> 5.1'
 
 group :plugins do
   gem 'kitchen-vagrant'
@@ -50,7 +51,6 @@ group :style do
 end
 
 group :unit do
-  gem 'berkshelf'
   gem 'chefspec'
   gem 'fauxhai'
   gem 'rspec'
@@ -58,6 +58,6 @@ group :unit do
 end
 
 group :integration do
-  gem 'kitchen-docker'
-  gem 'test-kitchen'
+  gem 'kitchen-docker', '~> 2.6'
+  gem 'test-kitchen', '~> 1.13'
 end

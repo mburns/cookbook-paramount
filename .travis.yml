@@ -12,9 +12,14 @@ cache:
 
 env:
   matrix:
-  - INSTANCE=default-ubuntu-1404
-  - INSTANCE=email-ubuntu-1404
-  - INSTANCE=web-ubuntu-1404
+  - TEST="style:all"
+  - TEST="test:unit"
+  - TEST="test:integration:docker[default-ubuntu-1404]"
+  - TEST="test:integration:docker[email-ubuntu-1404]"
+  - TEST="test:integration:docker[web-ubuntu-1404]"
+
+matrix:
+  fast_finish: true
 
 before_install:
   - curl -L https://www.getchef.com/chef/install.sh | sudo bash -s -- -P chefdk -v 0.18.30
@@ -30,10 +35,7 @@ before_script:
   - /opt/chefdk/embedded/bin/foodcritic --version
 
 script:
-  - travis_retry bundle exec rake style:all
-  - travis_retry bundle exec rake test:unit
-  - travis_retry chef exec bundle exec rake test:integration:docker[${INSTANCE}]
-  # - chef exec bundle exec kitchen verify default-ubuntu-1404
+  - travis_retry chef exec bundle exec rake ${TEST}
 
 after_failure:
   - cat docker_daemon.log

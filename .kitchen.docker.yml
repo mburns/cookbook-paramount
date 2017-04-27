@@ -2,7 +2,21 @@
 driver:
   name: docker
   privileged: true
+  use_sudo: false
+
   binary: /usr/local/bin/docker
   run_command: /sbin/init
   provision_command:
     - mkdir -p /var/run/sshd
+
+platforms:
+- name: ubuntu-14.04
+- name: ubuntu-16.04
+
+suites:
+  - name: default
+    run_list:
+    - recipe[test::default]
+  - name: email
+    run_list:
+    - recipe[test::email]
