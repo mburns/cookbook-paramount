@@ -13,17 +13,6 @@ cache:
 env:
   global:
   - TRAVIS=1 CI=1 COVERAGE=1
-  matrix:
-  - INSTANCE=default-ubuntu-1404
-  - INSTANCE=default-ubuntu-1604
-  # - INSTANCE=default-debian-7.8
-
-matrix:
-  fast_finish: true
-  include:
-  - script:
-    - travis_retry bundle exec rake style:all
-    - travis_retry bundle exec rake test:unit
 
 before_install:
   - curl -L https://www.getchef.com/chef/install.sh | sudo bash -s -- -P chefdk -v 0.18.30
@@ -39,7 +28,9 @@ before_script:
   - /opt/chefdk/embedded/bin/foodcritic --version
 
 script:
-  - chef exec bundle exec kitchen verify ${INSTANCE}
+  - travis_retry bundle exec rake style:all
+  - travis_retry bundle exec rake test:unit
+  - chef exec bundle exec kitchen verify default-ubuntu-1404
 
 after_failure:
   - cat docker_daemon.log
