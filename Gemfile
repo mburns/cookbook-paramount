@@ -58,9 +58,6 @@ group :unit do
 end
 
 group :integration do
-  gem 'test-kitchen'
-end
-
-group :kitchen_docker do
   gem 'kitchen-docker'
+  gem 'test-kitchen'
 end
