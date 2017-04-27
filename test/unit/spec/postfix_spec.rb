@@ -10,10 +10,9 @@ describe 'paramount::_postfix' do
 
   cached(:chef_run) { ChefSpec::ServerRunner.new.converge(described_recipe) }
 
-  # postgresql::server spostfixadmin::map_files
+  # paramount::_postfixadmin postgresql::server spostfixadmin::map_files
   %w[
     postfix::server
-    paramount::_postfixadmin
     paramount::_dkim
   ].each do |recipe|
     it "includes #{recipe}" do
