@@ -29,7 +29,7 @@ end
 
 user 'postfix' do
   shell '/bin/false'
-  supports manage_home: true
+  manage_home true
   system true
 end
 
@@ -60,7 +60,7 @@ postgresql_database 'postfix' do
 end
 
 smtp_sasl_passwd = random_password
-node.set['postfix']['sasl']['smtp_sasl_passwd'] = smtp_sasl_passwd
+node.normal['postfix']['sasl']['smtp_sasl_passwd'] = smtp_sasl_passwd
 Chef::Log.info("SMTP SASL password: #{smtp_sasl_passwd}")
 
 # TODO : postscreen

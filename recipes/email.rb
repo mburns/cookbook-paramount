@@ -33,7 +33,7 @@ directory '/data'
 
 user 'vmail' do
   shell '/bin/false'
-  supports manage_home: true
+  manage_home true
   system true
 end
 
