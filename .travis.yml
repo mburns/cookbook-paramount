@@ -10,13 +10,6 @@ cache:
     - $HOME/.berkshelf/
     - $HOME/.gem/
 
-addons:
-  apt:
-    sources:
-      - chef-current-trusty
-    packages:
-      - chefdk
-
 env:
   global:
   - TRAVIS=1 CI=1 COVERAGE=1
