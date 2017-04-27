@@ -16,21 +16,10 @@ node.default['postfix']['main']['milter_default_action'] = 'accept'
 node.default['postfix']['main']['smtpd_milters'] = "inet:localhost:#{opendkim_port}"
 node.default['postfix']['main']['non_smtpd_milters'] = "inet:localhost:#{opendkim_port}"
 
-include_recipe 'encrypted_attributes'
-
 Chef::Recipe.send(:include, OpenSSLCookbook::RandomPassword)
 
-if Chef::EncryptedAttribute.exist?(node['paramount']['postgres_passwd'])
-  # update with the new keys
-  Chef::EncryptedAttribute.update(node.set['paramount']['postgres_passwd'])
-
-  # read the password
-  postgres_passwd = Chef::EncryptedAttribute.load(node['paramount']['postgres_passwd'])
-else
-  # create the password and save it
-  postgres_passwd = random_password
-  node.default['paramount']['postgres_passwd'] = Chef::EncryptedAttribute.create(postgres_passwd)
-end
+postgres_passwd = random_password
+node.default['paramount']['postgres_passwd'] = postgres_passwd
 
 Chef::Log.info("Postgres password: #{postgres_passwd}")
 
@@ -78,5 +67,5 @@ Chef::Log.info("SMTP SASL password: #{smtp_sasl_passwd}")
 
 include_recipe 'postfix::server'
 
-include_recipe 'paramount::_postfixadmin'
+# include_recipe 'paramount::_postfixadmin'
 include_recipe 'paramount::_dkim'

@@ -12,7 +12,6 @@ describe 'paramount::_postfix' do
 
   # postgresql::server spostfixadmin::map_files
   %w[
-    encrypted_attributes
     postfix::server
     paramount::_postfixadmin
     paramount::_dkim

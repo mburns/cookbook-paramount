@@ -46,8 +46,6 @@ template '/etc/amavis/conf.d/01-basic' do
   notifies :restart, 'poise_service[amavis]', :delayed
 end
 
-poise_service 'amavis' do
-  command 'amavisd'
-  supports [:restart]
+service 'amavis' do
   action %i[enable start]
 end

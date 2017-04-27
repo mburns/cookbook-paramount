@@ -10,17 +10,14 @@ Chef::Log.info("[EMAIL] :: #{recipe_name}")
 
 include_recipe 'paramount::_postfix'
 
+node.default['postfixadmin']['web_server'] = 'nginx'
 node.default['postfixadmin']['database']['type'] = 'postgresql'
 
 node.default['postfixadmin']['server_name'] = node['paramount']['hostname']
 node.default['postfixadmin']['common_name'] = node['paramount']['hostname']
 
-node.default['postfixadmin']['database']['type'] = 'postgresql'
-
 include_recipe 'postfixadmin::default'
 include_recipe 'postfixadmin::map_files'
-
-include_recipe 'encrypted_attributes'
 
 Chef::Recipe.send(:include, OpenSSLCookbook::RandomPassword)
 

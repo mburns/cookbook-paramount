@@ -10,9 +10,9 @@ describe 'paramount::_roundcube' do
 
   cached(:chef_run) { ChefSpec::ServerRunner.new.converge(described_recipe) }
 
-  # roundcube::install roundcube::configure
   %w[
-    encrypted_attributes
+    roundcube::install
+    roundcube::configure
     php-fpm
   ].each do |recipe|
     it "includes #{recipe}" do

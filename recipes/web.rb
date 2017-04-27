@@ -9,5 +9,6 @@
 Chef::Log.info("[WEB] :: #{recipe_name}")
 
 include_recipe 'chef_nginx'
+include_recipe 'php-fpm'
 
 include_recipe 'paramount::_wallabag'

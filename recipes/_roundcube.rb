@@ -8,50 +8,26 @@
 
 Chef::Log.info("[EMAIL] :: #{recipe_name}")
 
-include_recipe 'encrypted_attributes'
-
 Chef::Recipe.send(:include, OpenSSLCookbook::RandomPassword)
 
-if Chef::EncryptedAttribute.exist?(node['roundcube']['database']['password'])
-  # update with the new keys
-  Chef::EncryptedAttribute.update(node.set['roundcube']['database']['password'])
-
-  # read the password
-  roundcube_passwd = Chef::EncryptedAttribute.load(node['roundcube']['database']['password'])
-else
-  # create the password and save it
-  roundcube_passwd = random_password
-  node.default['roundcube']['database']['password'] = Chef::EncryptedAttribute.create(roundcube_passwd)
-end
-
-Chef::Log.info("RoundCube password: #{roundcube_passwd}")
+node.default['roundcube']['database']['password'] = random_password
+Chef::Log.info("RoundCube password: #{node['roundcube']['database']['password']}")
 
 node.default['roundcube']['smtp']['server'] = "mail.#{node['paramount']['domain']}"
+node.default['roundcube']['smtp']['password'] = random_password
 
-if Chef::EncryptedAttribute.exist?(node['roundcube']['smtp']['password'])
-  # update with the new keys
-  Chef::EncryptedAttribute.update(node.set['roundcube']['smtp']['password'])
-
-  # read the password
-  roundcube_smtp_passwd = Chef::EncryptedAttribute.load(node['roundcube']['smtp']['password'])
-else
-  # create the password and save it
-  roundcube_smtp_passwd = random_password
-  node.default['roundcube']['smtp']['password'] = Chef::EncryptedAttribute.create(roundcube_smtp_passwd)
-end
-
-Chef::Log.info("RoundCube SMTP password: #{roundcube_smtp_passwd}")
+Chef::Log.info("RoundCube SMTP password: #{node['roundcube']['smtp']['password']}")
 
 postgresql_connection_info = {
   host: '127.0.0.1',
   port: 5432,
   username: 'postgres',
-  password: roundcube_passwd
+  password: node['roundcube']['database']['password']
 }
 
 postgresql_database_user 'roundcube_db' do
   connection postgresql_connection_info
-  password roundcube_passwd
+  password node['roundcube']['database']['password']
   action :create
 end
 
@@ -70,25 +46,7 @@ end
 include_recipe 'php-fpm'
 include_recipe 'chef_nginx'
 
-# include_recipe 'roundcube::install'
-# include_recipe 'roundcube::configure'
+include_recipe 'roundcube::install'
+include_recipe 'roundcube::configure'
 
-# php_fpm_pool node['roundcube']['php-fpm']['pool'] do
-#   user node['nginx']['user']
-#   group node['nginx']['group']
-#   listen_owner node['nginx']['user']
-#   listen_group node['nginx']['group']
-#   listen_mode '0660'
-#   # Fix php-fpm cookbook ubuntu support
-#   if node['platform'] == 'ubuntu' && node['platform_version'].to_i < 12
-#     process_manager 'dynamic'
-#   end
-# end
-
-# https://raw.githubusercontent.com/xhost-cookbooks/roundcube/master/templates/default/nginx_vhost.erb
-nginx_site node['roundcube']['server_name'] do
-  variables(
-    base_dir: "#{node['roundcube']['install_dir']}/roundcube"
-  )
-  action :enable
-end
+include_recipe 'roundcube::nginx_vhost'

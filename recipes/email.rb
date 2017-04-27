@@ -22,7 +22,6 @@ Chef::Log.info('[EMAIL]')
 Chef::Recipe.send(:include, OpenSSLCookbook::RandomPassword)
 
 # encfs_pass = random_password
-# node.set['paramount']['encfs_passwd'] = Chef::EncryptedAttribute.create(encfs_pass)
 # Chef::Log.info("EncFS password: #{encfs_pass}")
 
 directory '/data'
@@ -58,5 +57,5 @@ include_recipe 'paramount::_dkim'
 include_recipe 'dspam'
 
 include_recipe 'paramount::_roundcube'
-# include_recipe 'paramount::_dpush' # requires apache
-# include_recipe 'paramount::_automx' # requires php
+include_recipe 'paramount::_dpush'
+include_recipe 'paramount::_automx'
