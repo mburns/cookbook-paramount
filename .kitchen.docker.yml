@@ -11,12 +11,17 @@ driver:
 
 platforms:
   - name: ubuntu-14.04
-  - name: ubuntu-16.04
 
 suites:
   - name: default
     run_list:
     - recipe[test::default]
+  - name: system
+    run_list:
+    - recipe[paramount::system]
+  - name: security
+    run_list:
+    - recipe[paramount::security]
   - name: cloud
     run_list:
     - recipe[test::cloud]

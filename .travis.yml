@@ -13,10 +13,12 @@ cache:
 env:
   matrix:
   - TEST="style:all"
-  - TEST="test:unit"
-  - TEST="test:integration:docker[default-ubuntu-1404]"
-  - TEST="test:integration:docker[email-ubuntu-1404]"
-  - TEST="test:integration:docker[web-ubuntu-1404]"
+  - TEST="unit"
+  - TEST="integration:docker[default-ubuntu-1404]"
+  - TEST="integration:docker[cloud-ubuntu-1404]"
+  - TEST="integration:docker[email-ubuntu-1404]"
+  - TEST="integration:docker[multimedia-ubuntu-1404]"
+  - TEST="integration:docker[web-ubuntu-1404]"
 
 matrix:
   fast_finish: true
