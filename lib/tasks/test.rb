@@ -13,14 +13,18 @@ namespace :test do
     desc 'Run integration tests using Vagrant'
     task :vagrant do
       Kitchen.logger = Kitchen.default_file_logger
-      Kitchen::Config.new.instances.each do |instance|
-        instance.test(:always)
-      end
+      Kitchen::Config.new.instances.each { |instance| instance.test(:always) }
     end
 
-    desc 'Run integration tests using kitchen-docker'
-    task :docker, %i[regexp action] do |_t, args|
-      run_kitchen(args.action, args.regexp, local_config: '.kitchen.docker.yml')
+    desc 'Run integration tests using Docker'
+    task :docker, [:instance] do |_t, args|
+      args.with_defaults(instance: 'default-ubuntu-1404')
+      require 'kitchen'
+      Kitchen.logger = Kitchen.default_file_logger
+      loader = Kitchen::Loader::YAML.new(local_config: '.kitchen.docker.yml')
+      instances = Kitchen::Config.new(loader: loader).instances
+      # Travis CI Docker service does not support destroy:
+      instances.get(args.instance).verify
     end
 
     desc 'Run integration tests using The Cloud(TM)'

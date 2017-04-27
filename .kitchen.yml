@@ -1,12 +1,8 @@
 ---
 driver:
-  name: docker
+  name: vagrant
   use_sudo: false
   privileged: true
-  binary: /usr/local/bin/docker
-  run_command: /sbin/init
-  provision_command:
-    - mkdir -p /var/run/sshd
   cachier: true
   customize:
     memory: 4096

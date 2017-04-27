@@ -11,14 +11,16 @@ cache:
     - $HOME/.gem/
 
 env:
-  global:
-  - TRAVIS=1 CI=1 COVERAGE=1
+  matrix:
+  - INSTANCE=default-ubuntu-1404
+  - INSTANCE=email-ubuntu-1404
+  - INSTANCE=web-ubuntu-1404
 
 before_install:
   - curl -L https://www.getchef.com/chef/install.sh | sudo bash -s -- -P chefdk -v 0.18.30
 
 install:
-  - chef exec bundle install
+  - chef exec bundle install --without='development plugins'
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
@@ -30,7 +32,8 @@ before_script:
 script:
   - travis_retry bundle exec rake style:all
   - travis_retry bundle exec rake test:unit
-  - chef exec bundle exec kitchen verify default-ubuntu-1404
+  - travis_retry chef exec bundle exec rake test:integration:docker[${INSTANCE}]
+  # - chef exec bundle exec kitchen verify default-ubuntu-1404
 
 after_failure:
   - cat docker_daemon.log

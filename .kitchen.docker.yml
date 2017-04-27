@@ -1,0 +1,8 @@
+---
+driver:
+  name: docker
+  privileged: true
+  binary: /usr/local/bin/docker
+  run_command: /sbin/init
+  provision_command:
+    - mkdir -p /var/run/sshd
