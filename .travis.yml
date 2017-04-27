@@ -5,8 +5,7 @@ rvm:
   - 2.3.1
 
 cache:
-  - bundler
-  - apt
+  bundler: true
   directories:
     - $HOME/.berkshelf/
     - $HOME/.gem/
