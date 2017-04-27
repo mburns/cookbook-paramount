@@ -22,7 +22,7 @@ include_recipe 'postfixadmin::map_files'
 Chef::Recipe.send(:include, OpenSSLCookbook::RandomPassword)
 
 postfix_passwd = random_password
-node.set['paramount']['postfix_passwd'] = postfix_passwd
+node.normal['paramount']['postfix_passwd'] = postfix_passwd
 Chef::Log.info("Postfix password: #{postfix_passwd}")
 
 postfixadmin_admin node['paramount']['contact'] do

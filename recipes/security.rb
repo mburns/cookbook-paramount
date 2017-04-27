@@ -12,7 +12,7 @@ include_recipe 'fail2ban'
 include_recipe 'rkhunter'
 include_recipe 'openssl'
 
-node.set['aide']['paths'] = {
+node.normal['aide']['paths'] = {
   '/data/.*' => '!'
 }
 
