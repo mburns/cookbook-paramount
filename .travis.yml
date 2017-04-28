@@ -35,9 +35,11 @@ before_script:
   - /opt/chefdk/embedded/bin/chef --version
   - /opt/chefdk/embedded/bin/berks --version
   - /opt/chefdk/embedded/bin/foodcritic --version
+  - which docker
+  - which chef
 
 script:
-  - travis_retry chef exec bundle exec rake ${TEST}
+  - chef exec bundle exec rake ${TEST}
 
 after_failure:
   - cat docker_daemon.log

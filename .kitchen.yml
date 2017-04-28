@@ -1,6 +1,7 @@
 ---
 driver:
   name: vagrant
+  use_sudo: false
   network:
     - ["forwarded_port", {guest:  80, host: 8080, auto_correct: true}]
     - ["forwarded_port", {guest: 443, host: 8443, auto_correct: true}]
@@ -21,11 +22,13 @@ provisioner:
         permit_root_login: 'yes'
     authorization:
       sudo:
-        users: ['vagrant']
+        users: ['vagrant', 'kitchen']
         passwordless: true
 
 platforms:
   - name: ubuntu-14.04
+    driver:
+      box: ubuntu/trusty64
   - name: ubuntu-16.04
   - name: debian-8.7
   - name: fedora-25
