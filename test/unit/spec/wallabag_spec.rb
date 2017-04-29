@@ -17,9 +17,9 @@ describe 'paramount::_wallabag' do
     end
   end
 
-  it 'includes php-fpm' do
-    expect(chef_run).to include_recipe 'php-fpm'
-  end
+  # it 'includes php-fpm' do
+  #   expect(chef_run).to include_recipe 'php-fpm'
+  # end
 
   # ark[wallabag]
 end

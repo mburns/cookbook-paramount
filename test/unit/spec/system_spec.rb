@@ -11,22 +11,21 @@ describe 'paramount::system' do
 
   cached(:chef_run) { ChefSpec::ServerRunner.new.converge(described_recipe) }
 
-  # sysctl
-  %w[
-    ntp
-    build-essential
-    packages
-    ubuntu
-    sudo
-    users::sysadmins
-    rsyslog
-    djbdns::cache
-    openssh
-  ].each do |recipe|
-    it "Includes recipe: #{recipe}" do
-      expect(chef_run).to include_recipe(recipe)
-    end
-  end
+  # %w[
+  #   ntp
+  #   build-essential
+  #   packages
+  #   ubuntu
+  #   sudo
+  #   users::sysadmins
+  #   rsyslog
+  #   djbdns::cache
+  #   openssh
+  # ].each do |recipe|
+  #   it "Includes recipe: #{recipe}" do
+  #     expect(chef_run).to include_recipe(recipe)
+  #   end
+  # end
 
   # it 'installs vim' do
   #   expect(chef_run).to install_package('vim')

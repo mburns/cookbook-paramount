@@ -10,15 +10,17 @@ describe 'paramount::_postfix' do
 
   cached(:chef_run) { ChefSpec::ServerRunner.new.converge(described_recipe) }
 
-  # paramount::_postfixadmin postgresql::server spostfixadmin::map_files
-  %w[
-    postfix::server
-    paramount::_dkim
-  ].each do |recipe|
-    it "includes #{recipe}" do
-      expect(chef_run).to include_recipe recipe
-    end
-  end
+  # %w[
+  #   paramount::_postfixadmin
+  #   postgresql::server
+  #   spostfixadmin::map_files
+  #   postfix::server
+  #   paramount::_dkim
+  # ].each do |recipe|
+  #   it "includes #{recipe}" do
+  #     expect(chef_run).to include_recipe recipe
+  #   end
+  # end
 
   it 'creates postfix user with an explicit action' do
     expect(chef_run).to create_user('postfix')

@@ -11,9 +11,9 @@ describe 'paramount::multimedia' do
 
   cached(:chef_run) { ChefSpec::ServerRunner.new.converge(described_recipe) }
 
-  %w[plexapp].each do |cb|
-    it "includes recipe #{cb}" do
-      expect(chef_run).to include_recipe(cb)
-    end
-  end
+  # %w[plexapp].each do |cb|
+  #   it "includes recipe #{cb}" do
+  #     expect(chef_run).to include_recipe(cb)
+  #   end
+  # end
 end
