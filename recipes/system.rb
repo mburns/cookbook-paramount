@@ -27,9 +27,9 @@ include_recipe 'djbdns::cache'
 
 include_recipe 'openssh'
 
-node.default['elkstack']['config']['backups']['enabled'] = false
+# node.default['elkstack']['config']['backups']['enabled'] = false
 # node.default['elasticsearch']['allocated_memory'] = ''
 # node.default['elkstack']['config']['lumberjack_data_bag']['key'] = 'SSL CERT'
 
 # node.default['elkstack']['config']['lumberjack_data_bag'] = ''
-include_recipe 'elkstack'
+# include_recipe 'elkstack'

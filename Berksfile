@@ -38,7 +38,7 @@ cookbook 'solr_app', '~> 0.0'
 
 ## Monitoring & Logs
 cookbook 'collectd-lib'
-cookbook 'elkstack', github: 'mburns/elkstack', branch: 'chef_nginx'
+# cookbook 'elkstack', github: 'mburns/elkstack', branch: 'chef_nginx'
 cookbook 'kibana_lwrp', github: 'lusis/chef-kibana'
 cookbook 'logrotate', '~> 2.1'
 cookbook 'logstash', '~> 0.12.0'
