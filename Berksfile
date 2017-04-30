@@ -63,12 +63,11 @@ cookbook 'automatic_updates', github: 'rackspace-cookbooks/automatic_updates'
 cookbook 'encrypted_attributes', '~> 0.6.0'
 cookbook 'fail2ban', '~> 2.3'
 cookbook 'firewall', '~> 2.5'
-cookbook 'ldap', '~> 1.1'
 # cookbook 'openvpn', github: 'sous-chefs/openvpn' # pending publication to Supermarket
 cookbook 'os-hardening', '~> 1.2'
 cookbook 'selinux'
 cookbook 'rkhunter', '~> 0.2'
-cookbook 'openldap', '~> 2.2'
+cookbook 'openldap', '~> 3.0'
 cookbook 'openssl', '~> 6.0'
 cookbook 'ssl_certificate', '~> 2.1'
 
