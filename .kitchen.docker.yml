@@ -1,6 +1,7 @@
 ---
 driver:
   name: docker
+  hostname: paramount.local
   privileged: true
   use_sudo: false
   disable_upstart: false
