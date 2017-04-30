@@ -11,7 +11,7 @@ include_attribute 'postfix'
 
 default['postfix']['mail_type'] = 'master'
 
-default['postfix']['master']['maildrop']['active'] = true
+# default['postfix']['master']['maildrop']['active'] = true
 default['postfix']['master']['cyrus']['active'] = true
 
 domain = begin
