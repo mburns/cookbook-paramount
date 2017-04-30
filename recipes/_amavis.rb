@@ -34,13 +34,15 @@ end
 ].each do |filename|
   file "/etc/amavis/conf.d/#{filename}" do
     action :delete
+    owner 'root'
+    group 'amavis'
     notifies :restart, 'service[amavis]', :delayed
   end
 end
 
 template '/etc/amavis/conf.d/01-basic' do
   source 'amavis.erb'
-  owner 'amavis'
+  owner 'root'
   group 'amavis'
   mode 0o644
   notifies :restart, 'service[amavis]', :delayed
