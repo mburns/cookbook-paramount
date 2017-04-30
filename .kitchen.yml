@@ -11,7 +11,7 @@ driver:
 
 provisioner:
   name: chef_zero
-  require_chef_omnibus: true
+  require_chef_omnibus: false
   log_level: info
   file_atomic_update: false
   environments_path: test/integration/environments
