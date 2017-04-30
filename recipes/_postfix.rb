@@ -66,8 +66,11 @@ Chef::Log.info("SMTP SASL password: #{smtp_sasl_passwd}")
 # TODO : postscreen
 
 node.normal['postfix']['master']['maildrop']['active'] = true
+node.normal['postfix']['master']['cyrus']['active'] = true
+node.normal['postfix']['sender_canonical_map_entries'] = [] # TODO : remove
+node.normal['postfix']['smtp_generic_map_entries'] = [] # TODO : remove
 
-include_recipe 'postfix::server'
+include_recipe 'postfix'
 
 # include_recipe 'paramount::_postfixadmin'
 include_recipe 'paramount::_dkim'

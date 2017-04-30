@@ -6,6 +6,8 @@
 # License:: Apache License, Version 2.0
 #
 
+Chef::Log.info('[SYSTEM]')
+
 include_recipe 'ntp'
 
 include_recipe 'apt::unattended-upgrades'

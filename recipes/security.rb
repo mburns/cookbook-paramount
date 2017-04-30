@@ -6,6 +6,8 @@
 # License:: Apache License, Version 2.0
 #
 
+Chef::Log.info('[SECURITY]')
+
 include_recipe 'selinux'
 include_recipe 'firewall'
 include_recipe 'fail2ban'
