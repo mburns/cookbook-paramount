@@ -18,10 +18,10 @@ node.default['postfix']['main']['non_smtpd_milters'] = "inet:localhost:#{opendki
 
 Chef::Recipe.send(:include, OpenSSLCookbook::RandomPassword)
 
-postgres_passwd = random_password
-node.default['paramount']['postgres_passwd'] = postgres_passwd
+# postgres_passwd = random_password
+# node.default['paramount']['postgres_passwd'] = postgres_passwd
 
-Chef::Log.info("Postgres password: #{postgres_passwd}")
+# Chef::Log.info("Postgres password: #{postgres_passwd}")
 
 package 'sendmail' do
   action :remove
@@ -39,25 +39,25 @@ group 'postfix' do
   append true
 end
 
-connection_info = {
-  host: '127.0.0.1',
-  port: '5432',
-  username: 'postgres',
-  password: postgres_passwd
-}
+# connection_info = {
+#   host: '127.0.0.1',
+#   port: '5432',
+#   username: 'postgres',
+#   password: postgres_passwd
+# }
 
-postgresql_database_user 'postfix' do
-  connection connection_info
-  password postgres_passwd
-  action :create
-end
+# postgresql_database_user 'postfix' do
+#   connection connection_info
+#   password postgres_passwd
+#   action :create
+# end
 
-postgresql_database 'postfix' do
-  connection connection_info
-  owner 'postfix'
-  # login true
-  action :create
-end
+# postgresql_database 'postfix' do
+#   connection connection_info
+#   owner 'postfix'
+#   # login true
+#   action :create
+# end
 
 smtp_sasl_passwd = random_password
 node.normal['postfix']['sasl']['smtp_sasl_passwd'] = smtp_sasl_passwd

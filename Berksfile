@@ -12,11 +12,11 @@ cookbook 'build-essential'
 cookbook 'chef-sugar', '~> 3.4'
 cookbook 'chef-vault', '~> 2.1'
 
-cookbook 'database', '~> 6.0'
 cookbook 'hostsfile', '~> 2.4'
 cookbook 'packages', '~> 1.0'
 cookbook 'partial_search'
 cookbook 'ohai', '~> 4.2.2'
+cookbook 'postgresql', '~> 6.1.1'
 
 ## Cloud
 cookbook 'djbdns', '~> 3.0'
@@ -38,7 +38,6 @@ cookbook 'solr_app', '~> 0.0'
 
 ## Monitoring & Logs
 cookbook 'collectd-lib'
-# cookbook 'elkstack', github: 'mburns/elkstack', branch: 'chef_nginx'
 cookbook 'kibana_lwrp', github: 'lusis/chef-kibana'
 cookbook 'logrotate', '~> 2.1'
 cookbook 'logstash', '~> 0.12.0'
@@ -53,7 +52,6 @@ cookbook 'plexapp', '~> 1.0.0'
 
 ## Web
 cookbook 'chef_nginx', '~> 5.0'
-# cookbook 'php'
 cookbook 'php-fpm'
 
 ## Security
