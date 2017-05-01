@@ -43,7 +43,7 @@ group 'vmail' do
   append true
 end
 
-include_recipe 'database::postgresql'
+# include_recipe 'postgresql'
 
 include_recipe 'paramount::_postgrey'
 include_recipe 'paramount::_dovecot'
