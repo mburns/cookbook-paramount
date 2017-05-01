@@ -18,23 +18,23 @@ node.default['roundcube']['smtp']['password'] = random_password
 
 Chef::Log.info("RoundCube SMTP password: #{node['roundcube']['smtp']['password']}")
 
-postgresql_connection_info = {
-  host: '127.0.0.1',
-  port: 5432,
-  username: 'postgres',
-  password: node['roundcube']['database']['password']
-}
-
-postgresql_database_user 'roundcube_db' do
-  connection postgresql_connection_info
-  password node['roundcube']['database']['password']
-  action :create
-end
-
-postgresql_database 'roundcube_db' do
-  connection postgresql_connection_info
-  action :create
-end
+# postgresql_connection_info = {
+#   host: '127.0.0.1',
+#   port: 5432,
+#   username: 'postgres',
+#   password: node['roundcube']['database']['password']
+# }
+#
+# postgresql_database_user 'roundcube_db' do
+#   connection postgresql_connection_info
+#   password node['roundcube']['database']['password']
+#   action :create
+# end
+#
+# postgresql_database 'roundcube_db' do
+#   connection postgresql_connection_info
+#   action :create
+# end
 
 openssl_x509 '/etc/httpd/ssl/roundcube.pem' do
   common_name "webmail.#{node['paramount']['domain']}"
