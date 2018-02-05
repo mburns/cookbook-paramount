@@ -32,7 +32,6 @@ install:
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
-  - chef --version
   - berks --version
   - foodcritic --version
 
