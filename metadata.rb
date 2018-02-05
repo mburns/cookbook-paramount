@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -13,7 +11,7 @@ chef_version '>= 12.9.41' if respond_to?(:chef_version)
 
 version begin
   IO.read(File.join(File.dirname(__FILE__), 'VERSION'))
-rescue
+rescue StandardError
   '0.2.0'
 end
 
