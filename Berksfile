@@ -66,7 +66,7 @@ cookbook 'os-hardening', '~> 1.2'
 cookbook 'selinux'
 cookbook 'rkhunter', '~> 0.2'
 cookbook 'openldap', '~> 3.0'
-cookbook 'openssl', '~> 6.0'
+cookbook 'openssl', '~> 8.1'
 cookbook 'ssl_certificate', '~> 2.1'
 
 ## System
