@@ -56,6 +56,9 @@ end
 
 # TODO : postscreen
 
+node.default['postfix']['master']['cyrus']['active'] = true
+node.default['postfix']['master']['maildrop']['active'] = true
+
 include_recipe 'postfix'
 
 # include_recipe 'paramount::_postfixadmin'

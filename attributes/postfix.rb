@@ -8,7 +8,6 @@
 
 include_attribute 'paramount::default'
 include_attribute 'paramount::dkim'
-include_attribute 'postfix'
 
 default['postfix']['mail_type'] = 'master'
 
@@ -29,9 +28,4 @@ default['postfix']['main']['smtpd_milters'] = "inet:localhost:#{node['paramount'
 # default['postfix']['main']['smtp_sasl_auth_enable'] = 'yes'
 # default['postfix']['main']['smtp_sasl_security_options'] = 'keep'
 
-default['postfix']['master']['cyrus']['active'] = true
-default['postfix']['master']['maildrop']['active'] = true
-
 default['postfix']['sasl']['smtp_sasl_user_name'] = node['paramount']['user']
-
-default['postfix']['sender_canonical_map_entries'] = {}
