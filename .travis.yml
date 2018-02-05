@@ -24,11 +24,11 @@ matrix:
   fast_finish: true
 
 before_install:
-  - curl -L https://www.getchef.com/chef/install.sh | sudo bash -s -- -P chefdk -v 1.0.3
-  - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+  - gem install bundler
+  - gem install
 
 install:
-  - chef exec bundle install --jobs=3 --retry=3 --without='development plugins'
+  - bundle install --jobs=3 --retry=3 --without='development plugins'
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
@@ -37,7 +37,7 @@ before_script:
   - foodcritic --version
 
 script:
-  - travis_retry chef exec bundle exec rake ${TEST}
+  - travis_retry bundle exec rake ${TEST}
 
 after_failure:
   - cat docker_daemon.log
