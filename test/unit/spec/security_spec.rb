@@ -18,9 +18,9 @@ describe 'paramount::security' do
   # end
 
   it 'creates ssl directory with an explicit action' do
-    expect(chef_run).to create_directory('/etc/httpd/ssl')
+    expect(chef_run).to create_directory('/etc/nginx/ssl')
   end
 
   # selinux_state[SELinux Permissive]
-  # openssl_x509[/etc/httpd/ssl/example.com.pem]
+  # openssl_x509[/etc/nginx/ssl/example.com.pem]
 end

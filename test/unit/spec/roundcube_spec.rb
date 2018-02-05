@@ -22,5 +22,5 @@ describe 'paramount::_roundcube' do
 
   # postgresql_database_user[roundcube_db]
   # postgresql_database[roundcube_db]
-  # openssl_x509[/etc/httpd/ssl/roundcube.pem]
+  # openssl_x509[/etc/nginx/ssl/roundcube.pem]
 end
