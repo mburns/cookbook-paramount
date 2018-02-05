@@ -31,9 +31,9 @@ cookbook 'dovecot', '~> 3.0'
 cookbook 'dspam', github: 'mburns/chef-dspam'
 cookbook 'opendkim', '~> 2.0'
 cookbook 'onddo-spamassassin', '~> 2.0'
-cookbook 'postfix', '~> 5.0'
+cookbook 'postfix', '~> 5.2.1'
 # cookbook 'postfixadmin', github: 'mburns/postfixadmin-cookbook', branch: 'mysql2_chef_gem_v2.0'
-cookbook 'roundcube', github: 'mburns/roundcube', branch: 'chef_nginx'
+# cookbook 'roundcube', github: 'mburns/roundcube', branch: 'chef_nginx'
 cookbook 'solr_app', '~> 0.0'
 
 ## Monitoring & Logs
