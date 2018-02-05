@@ -38,15 +38,14 @@ Chef::Recipe.send(:include, OpenSSLCookbook::RandomPassword)
 
 include_recipe 'nginx'
 
-openssl_x509 '/etc/nginx/ssl/roundcube.pem' do
-  common_name "webmail.#{node['paramount']['domain']}"
-  org node['paramount']['organization']
-  org_unit node['paramount']['organization_unit']
-  country node['paramount']['country']
-end
+# openssl_x509 '/etc/nginx/ssl/roundcube.pem' do
+#   common_name "webmail.#{node['paramount']['domain']}"
+#   org node['paramount']['organization']
+#   org_unit node['paramount']['organization_unit']
+#   country node['paramount']['country']
+# end
 
 include_recipe 'php-fpm'
-include_recipe 'nginx'
 
 # include_recipe 'roundcube::install'
 # include_recipe 'roundcube::configure'
