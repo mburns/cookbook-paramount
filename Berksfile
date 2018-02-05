@@ -8,7 +8,7 @@ metadata
 cookbook 'ark', '~> 3.1'
 cookbook 'build-essential'
 cookbook 'chef-sugar', '~> 4.0'
-cookbook 'chef-vault', '~> 3.0'
+# cookbook 'chef-vault', '~> 3.0'
 
 cookbook 'hostsfile', '~> 3.0'
 cookbook 'packages', '~> 1.1'

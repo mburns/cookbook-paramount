@@ -5,8 +5,8 @@ source 'https://rubygems.org'
 
 ruby '2.3.6'
 
-gem 'berkshelf', '~> 5.1'
-gem 'chef', '~> 12.9.41'
+gem 'berkshelf', '~> 6.3'
+gem 'chef', '~> 12.14.89'
 
 group :plugins do
   gem 'kitchen-vagrant'
@@ -27,7 +27,7 @@ group :development do
   gem 'guard-kitchen'
   gem 'guard-rspec'
   gem 'guard-rubocop'
-  gem 'highline', '~> 1.7.8', '>= 1.7.8' # Used for input in Rake tasks.
+  gem 'highline'
   gem 'thor-scmversion'
 end
 
@@ -49,7 +49,7 @@ group :style do
 end
 
 group :unit do
-  gem 'chefspec'
+  gem 'chefspec', '~> 7.1'
   gem 'fauxhai'
   gem 'rspec'
   gem 'rspec-json_expectations'
@@ -57,5 +57,5 @@ end
 
 group :integration do
   gem 'kitchen-docker', '~> 2.6'
-  gem 'test-kitchen', '~> 1.13'
+  gem 'test-kitchen', '~> 1.20'
 end
