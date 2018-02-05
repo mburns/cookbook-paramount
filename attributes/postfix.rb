@@ -25,7 +25,13 @@ default['postfix']['main']['myorigin'] = domain
 default['postfix']['main']['non_smtpd_milters'] = "inet:localhost:#{node['paramount']['dkim_port']}"
 default['postfix']['main']['relayhost'] = "[smtp.#{node['postfix']['main']['mydomain']}]"
 default['postfix']['main']['smtpd_milters'] = "inet:localhost:#{node['paramount']['dkim_port']}"
-# default['postfix']['main']['smtp_sasl_auth_enable'] = 'yes'
-# default['postfix']['main']['smtp_sasl_security_options'] = 'keep'
+default['postfix']['main']['smtp_sasl_auth_enable'] = 'yes'
+default['postfix']['main']['smtp_sasl_security_options'] = 'keep'
+
+# default['postfix']['master']['cyrus']['active'] = true
+# default['postfix']['master']['maildrop']['active'] = true
 
 default['postfix']['sasl']['smtp_sasl_user_name'] = node['paramount']['user']
+
+default['postfix']['sender_canonical_map_entries'] = {}
+# default['postfix']['sender_canonical_map_entries'] = []
