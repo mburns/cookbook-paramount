@@ -36,7 +36,7 @@ Chef::Recipe.send(:include, OpenSSLCookbook::RandomPassword)
 #   action :create
 # end
 
-openssl_x509 '/etc/httpd/ssl/roundcube.pem' do
+openssl_x509 '/etc/nginx/ssl/roundcube.pem' do
   common_name "webmail.#{node['paramount']['domain']}"
   org node['paramount']['organization']
   org_unit node['paramount']['organization_unit']
