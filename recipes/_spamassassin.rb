@@ -8,4 +8,4 @@
 
 Chef::Log.info("[EMAIL] :: #{recipe_name}")
 
-include_recipe 'onddo-spamassassin'
+include_recipe 'onddo-spamassassin::default'
