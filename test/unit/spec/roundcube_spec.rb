@@ -10,16 +10,6 @@ describe 'paramount::_roundcube' do
 
   cached(:chef_run) { ChefSpec::ServerRunner.new.converge(described_recipe) }
 
-  # %w[
-  #   roundcube::install
-  #   roundcube::configure
-  #   php-fpm
-  # ].each do |recipe|
-  #   it "includes #{recipe}" do
-  #     expect(chef_run).to include_recipe recipe
-  #   end
-  # end
-
   # postgresql_database_user[roundcube_db]
   # postgresql_database[roundcube_db]
   # openssl_x509[/etc/nginx/ssl/roundcube.pem]
