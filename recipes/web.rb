@@ -11,6 +11,11 @@ Chef::Log.info("[WEB] :: #{recipe_name}")
 include_recipe 'nginx'
 include_recipe 'php-fpm'
 
+directory '/etc/nginx/ssl' do
+  owner 'root'
+  recursive true
+end
+
 openssl_x509 "/etc/nginx/ssl/#{node['paramount']['domain']}.pem" do
   common_name node['paramount']['domain']
   org node['paramount']['organization']
