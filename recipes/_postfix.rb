@@ -58,6 +58,7 @@ end
 
 node.default['postfix']['master']['cyrus']['active'] = true
 node.default['postfix']['master']['maildrop']['active'] = true
+node.default['postfix']['sender_canonical_map_entries'] = []
 
 include_recipe 'postfix'
 
