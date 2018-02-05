@@ -5,7 +5,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.3.6'
 
 gem 'berkshelf', '~> 5.1'
 gem 'chef', '~> 12.9.41'
