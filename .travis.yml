@@ -24,7 +24,7 @@ matrix:
   fast_finish: true
 
 before_install:
-  - curl -L https://www.getchef.com/chef/install.sh | sudo bash -s -- -P chefdk -v 0.18.30
+  - curl -L https://www.getchef.com/chef/install.sh | sudo bash -s -- -P chefdk -v 1.0.3
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
 
 install:

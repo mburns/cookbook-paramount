@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 ruby '2.3.6'
 
 gem 'berkshelf', '~> 6.3'
-gem 'chef', '~> 12.14.89'
+gem 'chef', '~> 12.15.19'
 
 group :plugins do
   gem 'kitchen-vagrant'
