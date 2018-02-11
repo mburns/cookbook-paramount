@@ -23,7 +23,7 @@ default['paramount']['services'] = %w[]
 
 default['paramount']['sieve']['enabled'] = true
 
-# TODO deprecate
+# TODO: deprecate
 default['paramount']['disable_cloud'] = false
 default['paramount']['disable_email'] = false
 default['paramount']['disable_multimedia'] = false
