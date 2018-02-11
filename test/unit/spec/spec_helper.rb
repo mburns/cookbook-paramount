@@ -27,7 +27,7 @@ RSpec.configure do |config|
   Ohai::Config[:log_level] = :error
 
   config.platform = 'ubuntu'
-  config.version = '14.04'
+  config.version = '16.04'
 end
 
 def stub_resources
