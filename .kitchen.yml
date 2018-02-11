@@ -40,7 +40,8 @@ platforms:
 suites:
   - name: default
     run_list:
-    - recipe[test::default]
+    - recipe[test::system]
+    - recipe[test::security]
   - name: cloud
     run_list:
     - recipe[test::cloud]
