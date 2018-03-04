@@ -26,7 +26,7 @@ DEPENDENCIES
     git: https://github.com/mburns/chef-dspam.git
     revision: eaec659e4387942c129134281af1c2dd59e3e3c0
   encrypted_attributes (~> 0.6.0)
-  fail2ban (~> 4.0)
+  fail2ban (~> 5.0)
   firewall (~> 2.6)
   hostname (~> 0.4)
   hostsfile (~> 3.0)
@@ -146,7 +146,7 @@ GRAPH
     yum (>= 0.0.0)
   encrypted_attributes (0.6.0)
     build-essential (>= 0.0.0)
-  fail2ban (4.0.1)
+  fail2ban (5.0.1)
     yum-epel (>= 0.0.0)
   firewall (2.6.3)
     chef-sugar (>= 0.0.0)

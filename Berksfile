@@ -57,7 +57,7 @@ cookbook 'aide', github: 'mburns/chef-aide', branch: 'remove-duplicates'
 cookbook 'automatic_updates', github: 'rackspace-cookbooks/automatic_updates'
 # cookbook 'encfs', '~> 0.2.0', github: 'mburns/encfs'
 cookbook 'encrypted_attributes', '~> 0.6.0'
-cookbook 'fail2ban', '~> 4.0'
+cookbook 'fail2ban', '~> 5.0'
 cookbook 'firewall', '~> 2.6'
 # cookbook 'openvpn', github: 'sous-chefs/openvpn' # pending publication to Supermarket
 cookbook 'os-hardening', '~> 1.2'
