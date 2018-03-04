@@ -12,46 +12,36 @@ addons:
       - chefdk
 
 cache:
-  # bundler: true
   directories:
     - $HOME/.berkshelf/
     - cookbooks/
     - berks-cookbooks/
-    # - $HOME/.gem/
-    # - $HOME/.rvm/
 
 env:
-  - TEST='integration:docker[default-centos-7]'
-  - TEST='integration:docker[default-debian-8]'
-  - TEST='integration:docker[default-debian-9]'
-  - TEST='integration:docker[default-fedora-27]'
-  - TEST='integration:docker[default-ubuntu-1404]'
-  - TEST='integration:docker[default-ubuntu-1604]'
-  - TEST='integration:docker[cloud-centos-7]'
-  - TEST='integration:docker[cloud-debian-8]'
-  - TEST='integration:docker[cloud-debian-9]'
-  - TEST='integration:docker[cloud-fedora-27]'
-  - TEST='integration:docker[cloud-ubuntu-1404]'
-  - TEST='integration:docker[cloud-ubuntu-1604]'
-  - TEST='integration:docker[email-centos-7]'
-  - TEST='integration:docker[email-debian-8]'
-  - TEST='integration:docker[email-debian-9]'
-  - TEST='integration:docker[email-fedora-27]'
-  - TEST='integration:docker[email-ubuntu-1404]'
-  - TEST='integration:docker[email-ubuntu-1604]'
-  - TEST='integration:docker[web-centos-7]'
-  - TEST='integration:docker[web-debian-8]'
-  - TEST='integration:docker[web-debian-9]'
-  - TEST='integration:docker[web-fedora-27]'
-  - TEST='integration:docker[web-ubuntu-1404]'
-  - TEST='integration:docker[web-ubuntu-1604]'
-
-# before_install:
-#   - gem install bundler
-#   - bundle install
-
-# install:
-#   - bundle install --jobs=3 --retry=3 --without='development plugins'
+  - TEST=default-centos-6
+  - TEST=default-centos-7
+  - TEST=default-debian-8
+  - TEST=default-debian-9
+  - TEST=default-ubuntu-1404
+  - TEST=default-ubuntu-1604
+  - TEST=cloud-centos-6
+  - TEST=cloud-centos-7
+  - TEST=cloud-debian-8
+  - TEST=cloud-debian-9
+  - TEST=cloud-ubuntu-1404
+  - TEST=cloud-ubuntu-1604
+  - TEST=email-centos-6
+  - TEST=email-centos-7
+  - TEST=email-debian-8
+  - TEST=email-debian-9
+  - TEST=email-ubuntu-1404
+  - TEST=email-ubuntu-1604
+  - TEST=web-centos-6
+  - TEST=web-centos-7
+  - TEST=web-debian-8
+  - TEST=web-debian-9
+  - TEST=web-ubuntu-1404
+  - TEST=web-ubuntu-1604
 
 before_script:
   - sudo iptables -L DOCKER || ( echo 'DOCKER iptables chain missing' ; sudo iptables -N DOCKER )

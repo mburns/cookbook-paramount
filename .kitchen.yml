@@ -3,8 +3,8 @@ driver:
   name: vagrant
   use_sudo: false
   network:
-    - ["forwarded_port", {guest:  80, host: 8080, auto_correct: true}]
-    - ["forwarded_port", {guest: 443, host: 8443, auto_correct: true}]
+    - ['forwarded_port', {guest:  80, host: 8080, auto_correct: true}]
+    - ['forwarded_port', {guest: 443, host: 8443, auto_correct: true}]
   cachier: true
   customize:
     memory: 4096
@@ -31,10 +31,10 @@ provisioner:
         passwordless: true
 
 platforms:
+  - name: centos-6
   - name: centos-7
   - name: debian-8
   - name: debian-9
-  - name: fedora-27
   - name: ubuntu-14.04
   - name: ubuntu-16.04
 
