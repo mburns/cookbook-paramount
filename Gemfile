@@ -16,7 +16,7 @@ group :plugins do
 end
 
 group :maintain do
-  gem 'rake', '~> 11'
+  gem 'rake'
   gem 'stove'
 end
 
@@ -56,6 +56,6 @@ group :unit do
 end
 
 group :integration do
-  gem 'kitchen-docker', '~> 2.6'
-  gem 'test-kitchen', '~> 1.20'
+  gem 'kitchen-docker'
+  gem 'test-kitchen'
 end

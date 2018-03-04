@@ -601,16 +601,16 @@ DEPENDENCIES
   guard-rubocop
   highline
   jsonlint
-  kitchen-docker (~> 2.6)
+  kitchen-docker
   kitchen-vagrant
   mime-types
   pry
-  rake (~> 11)
+  rake
   rspec
   rspec-json_expectations
   rubocop
   stove
-  test-kitchen (~> 1.20)
+  test-kitchen
   thor-scmversion
   vagrant-berkshelf
   vagrant-cachier
