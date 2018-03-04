@@ -24,7 +24,6 @@ env:
   - TEST=default-debian-8
   - TEST=default-debian-9
   - TEST=default-opensuse-leap-42
-  - TEST=default-fedora-27
   - TEST=default-freebsd-10
   - TEST=default-freebsd-11
   - TEST=default-ubuntu-1404
@@ -35,7 +34,6 @@ env:
   # - TEST=cloud-debian-8
   # - TEST=cloud-debian-9
   # - TEST=cloud-opensuse-leap-42
-  # - TEST=cloud-fedora-27
   # - TEST=cloud-freebsd-10
   # - TEST=cloud-freebsd-11
   # - TEST=cloud-ubuntu-1404
@@ -46,7 +44,6 @@ env:
   - TEST=email-debian-8
   - TEST=email-debian-9
   - TEST=email-opensuse-leap-42
-  - TEST=email-fedora-27
   - TEST=email-freebsd-10
   - TEST=email-freebsd-11
   - TEST=email-ubuntu-1404
@@ -57,7 +54,6 @@ env:
   # - TEST=multimedia-debian-8
   # - TEST=multimedia-debian-9
   # - TEST=multimedia-opensuse-leap-42
-  # - TEST=multimedia-fedora-27
   # - TEST=multimedia-freebsd-10
   # - TEST=multimedia-freebsd-11
   # - TEST=multimedia-ubuntu-1404
@@ -68,7 +64,6 @@ env:
   - TEST=web-debian-8
   - TEST=web-debian-9
   - TEST=web-opensuse-leap-42
-  - TEST=web-fedora-27
   - TEST=web-freebsd-10
   - TEST=web-freebsd-11
   - TEST=web-ubuntu-1404
@@ -94,7 +89,6 @@ matrix:
     env:
     - TEST=default-amazonlinux
     - TEST=default-opensuse-leap-42
-    - TEST=default-fedora-27
     - TEST=default-freebsd-10
     - TEST=default-freebsd-11
     # - TEST=cloud-amazonlinux

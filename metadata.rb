@@ -21,7 +21,6 @@ issues_url 'https://github.com/mburns/cookbook-paramount/issues' if respond_to?(
 supports 'amazon'
 supports 'centos'
 supports 'debian'
-supports 'fedora'
 supports 'oracle'
 supports 'redhat'
 supports 'scientific'
