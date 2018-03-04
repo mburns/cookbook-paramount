@@ -28,11 +28,11 @@ ark 'wallabag' do
   action :install
 end
 
-composer_project "/var/www/html/wallabag" do
-    dev false
-    quiet true
-    prefer_dist false
-    action :install
+composer_project '/var/www/html/wallabag' do
+  dev false
+  quiet true
+  prefer_dist false
+  action :install
 end
 
 nginx_site 'Enable wallabag' do
@@ -40,5 +40,3 @@ nginx_site 'Enable wallabag' do
   name 'wallabag'
   action :enable
 end
-
-# TODO : db
