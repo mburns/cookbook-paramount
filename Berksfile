@@ -49,6 +49,7 @@ cookbook 'couchpotato', github: 'multimedia-chef/couchpotato'
 cookbook 'plexapp', '~> 1.0.0'
 
 ## Web
+cookbook 'composer', '~> 2.6.1'
 cookbook 'nginx', '~> 7.0'
 cookbook 'php-fpm'
 

@@ -16,6 +16,7 @@ DEPENDENCIES
     git: https://github.com/RoboticCheese/clamav-chef.git
     revision: 640894fb7b65c172cc5d9f10a85c58916e003644
   collectd (~> 2.2.4)
+  composer (~> 2.6.1)
   couchpotato
     git: https://github.com/multimedia-chef/couchpotato.git
     revision: bdbd6be0c32a947b19a731c6930488dea726fc5f
@@ -127,6 +128,10 @@ GRAPH
     poise (~> 2.2)
     poise-service (~> 1.0)
   compat_resource (12.19.1)
+  composer (2.6.1)
+    apt (>= 0.0.0)
+    php (>= 0.0.0)
+    windows (>= 0.0.0)
   couchpotato (0.1.0)
   cron (5.0.1)
   curl (2.0.4)
@@ -230,6 +235,7 @@ GRAPH
     chef_client_updater (>= 0.0.0)
     clamav (>= 0.0.0)
     collectd (>= 0.0.0)
+    composer (>= 0.0.0)
     couchpotato (>= 0.0.0)
     djbdns (>= 0.0.0)
     dovecot (>= 0.0.0)
@@ -271,6 +277,9 @@ GRAPH
     yum (>= 0.0.0)
     yum-epel (>= 0.0.0)
   partial_search (1.0.9)
+  php (5.0.0)
+    build-essential (>= 0.0.0)
+    yum-epel (>= 0.0.0)
   php-fpm (0.8.0)
   plexapp (1.0.0)
   poise (2.8.1)
