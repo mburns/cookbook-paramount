@@ -35,6 +35,7 @@ group :test do
   gem 'chef-encrypted-attributes'
   gem 'chef-sugar'
   gem 'codecov'
+  gem 'cookstyle'
   gem 'coveralls', require: false
   gem 'fog'
   gem 'mime-types'
