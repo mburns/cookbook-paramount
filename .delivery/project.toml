@@ -1,5 +1,5 @@
 [local_phases]
-unit = 'rspec test/spec/'
+unit = 'rspec test/unit/spec/'
 lint = 'cookstyle --display-cop-names --extra-details'
 syntax = 'foodcritic .'
 provision = 'echo skipping'
