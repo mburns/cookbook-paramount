@@ -92,6 +92,9 @@ matrix:
   allow_failures:
     env:
     - TEST=default-amazonlinux
+    - TEST=default-centos-6
+    - TEST=default-centos-7
+    - TEST=default-debian-9
     - TEST=default-opensuse-leap-42
     - TEST=default-freebsd-10
     - TEST=default-freebsd-11
