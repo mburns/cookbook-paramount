@@ -2,6 +2,7 @@
 driver:
   name: dokken
   privileged: true
+  hostname: paramount.local
 
 transport:
   name: dokken
