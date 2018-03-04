@@ -8,12 +8,12 @@
 
 Chef::Log.info("[CLOUD] :: #{recipe_name}")
 
-%w[
+%w(
   curl
   php5-tidy
   php-xml-parser
   unzip
-].each do |pkg|
+).each do |pkg|
   package pkg
 end
 

@@ -20,9 +20,9 @@ at_exit { ChefSpec::Coverage.report! }
 
 def supported_platforms
   {
-    'centos' => ['7.4.1708'],
+    'centos' => ['6.9', '7.4.1708'],
     'debian' => ['8.10', '9.3'],
-    'ubuntu' => ['14.04', '16.04']
+    'ubuntu' => ['14.04', '16.04'],
   }
 end
 
