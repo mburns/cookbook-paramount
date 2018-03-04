@@ -5,13 +5,13 @@ require 'rspec/expectations'
 require 'chefspec'
 require 'chefspec/berkshelf'
 require 'chef/application'
-require 'coveralls'
+# require 'coveralls'
 require 'fauxhai'
 
-Coveralls.wear!
+# Coveralls.wear!
 
-require 'simplecov'
-SimpleCov.start
+# require 'simplecov'
+# SimpleCov.start
 
 require 'codecov'
 SimpleCov.formatter = SimpleCov::Formatter::Codecov
