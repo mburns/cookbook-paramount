@@ -2,41 +2,73 @@ sudo: required
 services: docker
 dist: trusty
 language: ruby
-rvm: 2.3.6
+rvm: 2.3
+
+addons:
+  apt:
+    sources:
+      - chef-stable-trusty
+    packages:
+      - chefdk
 
 cache:
-  bundler: true
+  # bundler: true
   directories:
     - $HOME/.berkshelf/
-    - $HOME/.gem/
+    - cookbooks/
+    - berks-cookbooks/
+    # - $HOME/.gem/
+    # - $HOME/.rvm/
 
 env:
-  matrix:
-  - TEST="style:all"
-  - TEST="unit"
-  - TEST="integration:docker[default-ubuntu-1404]"
-  - TEST="integration:docker[cloud-ubuntu-1404]"
-  - TEST="integration:docker[email-ubuntu-1404]"
-  - TEST="integration:docker[multimedia-ubuntu-1404]"
-  - TEST="integration:docker[web-ubuntu-1404]"
+  - TEST='integration:docker[default-centos-7]'
+  - TEST='integration:docker[default-debian-8]'
+  - TEST='integration:docker[default-debian-9]'
+  - TEST='integration:docker[default-fedora-27]'
+  - TEST='integration:docker[default-ubuntu-1404]'
+  - TEST='integration:docker[default-ubuntu-1604]'
+  - TEST='integration:docker[cloud-centos-7]'
+  - TEST='integration:docker[cloud-debian-8]'
+  - TEST='integration:docker[cloud-debian-9]'
+  - TEST='integration:docker[cloud-fedora-27]'
+  - TEST='integration:docker[cloud-ubuntu-1404]'
+  - TEST='integration:docker[cloud-ubuntu-1604]'
+  - TEST='integration:docker[email-centos-7]'
+  - TEST='integration:docker[email-debian-8]'
+  - TEST='integration:docker[email-debian-9]'
+  - TEST='integration:docker[email-fedora-27]'
+  - TEST='integration:docker[email-ubuntu-1404]'
+  - TEST='integration:docker[email-ubuntu-1604]'
+  - TEST='integration:docker[web-centos-7]'
+  - TEST='integration:docker[web-debian-8]'
+  - TEST='integration:docker[web-debian-9]'
+  - TEST='integration:docker[web-fedora-27]'
+  - TEST='integration:docker[web-ubuntu-1404]'
+  - TEST='integration:docker[web-ubuntu-1604]'
+
+# before_install:
+#   - gem install bundler
+#   - bundle install
+
+# install:
+#   - bundle install --jobs=3 --retry=3 --without='development plugins'
+
+before_script:
+  - sudo iptables -L DOCKER || ( echo 'DOCKER iptables chain missing' ; sudo iptables -N DOCKER )
+  - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+  - /opt/chefdk/bin/chef --version
+  - /opt/chefdk/bin/cookstyle --version
+  - /opt/chefdk/bin/foodcritic --version
+
+script:
+  - KITCHEN_LOCAL_YAML=.kitchen.dokken.yml /opt/chefdk/bin/kitchen verify ${TEST}
 
 matrix:
   fast_finish: true
-
-before_install:
-  - gem install bundler
-  - bundle install
-
-install:
-  - bundle install --jobs=3 --retry=3 --without='development plugins'
-
-before_script:
-  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
-  - berks --version
-  - foodcritic --version
-
-script:
-  - travis_retry bundle exec rake ${TEST}
+  include:
+    - script:
+      - /opt/chefdk/bin/chef exec delivery local all
+      env: UNIT_AND_LINT=1
 
 after_failure:
   - cat docker_daemon.log
