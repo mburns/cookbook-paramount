@@ -12,6 +12,7 @@ Chef::Log.info("[CLOUD] :: #{recipe_name}")
   curl
   php5-tidy
   php-xml-parser
+  rsync
   unzip
 ).each do |pkg|
   package pkg
