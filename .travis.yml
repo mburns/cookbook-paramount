@@ -36,6 +36,12 @@ env:
   - TEST=email-debian-9
   - TEST=email-ubuntu-1404
   - TEST=email-ubuntu-1604
+  - TEST=multimedia-centos-6
+  - TEST=multimedia-centos-7
+  - TEST=multimedia-debian-8
+  - TEST=multimedia-debian-9
+  - TEST=multimedia-ubuntu-1404
+  - TEST=multimedia-ubuntu-1604
   - TEST=web-centos-6
   - TEST=web-centos-7
   - TEST=web-debian-8
@@ -59,6 +65,26 @@ matrix:
     - script:
       - /opt/chefdk/bin/chef exec delivery local all
       env: UNIT_AND_LINT=1
-
+  allow_failures:
+    env:
+    - TEST=default-centos-6
+    - TEST=default-debian-8
+    - TEST=cloud-centos-6
+    - TEST=cloud-centos-7
+    - TEST=cloud-debian-8
+    - TEST=cloud-debian-9
+    - TEST=email-centos-6
+    - TEST=email-centos-7
+    - TEST=email-debian-8
+    - TEST=email-debian-9
+    - TEST=multimedia-centos-6
+    - TEST=multimedia-centos-7
+    - TEST=multimedia-debian-8
+    - TEST=multimedia-debian-9
+    - TEST=web-centos-6
+    - TEST=web-centos-7
+    - TEST=web-debian-8
+    - TEST=web-debian-9
+    
 after_failure:
   - cat docker_daemon.log
