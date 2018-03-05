@@ -1,4 +1,4 @@
-# sudo: required
+sudo: required
 services: docker
 dist: trusty
 language: ruby
@@ -11,8 +11,11 @@ addons:
     packages:
       - chefdk
 
+before_install:
+  - /opt/chefdk/bin/chef exec gem install bundler
+
 # Don't `bundle install` which takes about 1.5 mins
-install: echo "skip bundle install"
+# install: echo "skip bundle install"
 
 branches:
   only:
@@ -25,7 +28,7 @@ cache:
     - berks-cookbooks/
 
 env:
-  - TEST=default-ubuntu-1404
+  # - TEST=default-ubuntu-1404
   # - TEST=email-ubuntu-1404
   # - TEST=cloud-ubuntu-1404
   # - TEST=multimedia-ubuntu-1404
@@ -51,7 +54,10 @@ matrix:
   fast_finish: true
   include:
     - script:
-      - /opt/chefdk/bin/chef exec delivery local all
+      # - /opt/chefdk/bin/chef exec delivery local all
+      - rspec test/unit/spec/
+      - cookstyle --display-cop-names --extra-details
+      - foodcritic .
       env: UNIT_AND_LINT=1
   allow_failures:
     env:
