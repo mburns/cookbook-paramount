@@ -25,7 +25,7 @@ cache:
     - berks-cookbooks/
 
 env:
-  # - TEST=default-ubuntu-1404
+  - TEST=default-ubuntu-1404
   # - TEST=email-ubuntu-1404
   # - TEST=cloud-ubuntu-1404
   # - TEST=multimedia-ubuntu-1404
