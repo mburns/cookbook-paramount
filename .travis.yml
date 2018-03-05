@@ -11,6 +11,9 @@ addons:
     packages:
       - chefdk
 
+# Don't `bundle install` which takes about 1.5 mins
+install: echo "skip bundle install"
+
 branches:
   only:
     master
@@ -22,21 +25,17 @@ cache:
     - berks-cookbooks/
 
 env:
-  - TEST=default-ubuntu-1404
-  - TEST=email-ubuntu-1404
-  - TEST=cloud-ubuntu-1404
-  - TEST=multimedia-ubuntu-1404
-  - TEST=web-ubuntu-1404
-
-  - TEST=default-centos-7
-  - TEST=default-debian-8
-  - TEST=default-ubuntu-1604
-  - TEST=email-ubuntu-1604
-  - TEST=web-ubuntu-1604
-
-before_install:
-  - /opt/chefdk/bin/chef exec gem install bundler
-  # - /opt/chefdk/bin/chef exec bundle install
+  # - TEST=default-ubuntu-1404
+  # - TEST=email-ubuntu-1404
+  # - TEST=cloud-ubuntu-1404
+  # - TEST=multimedia-ubuntu-1404
+  # - TEST=web-ubuntu-1404
+  #
+  # - TEST=default-centos-7
+  # - TEST=default-debian-8
+  # - TEST=default-ubuntu-1604
+  # - TEST=email-ubuntu-1604
+  # - TEST=web-ubuntu-1604
 
 before_script:
   - sudo iptables -L DOCKER || ( echo 'DOCKER iptables chain missing' ; sudo iptables -N DOCKER )
@@ -44,7 +43,6 @@ before_script:
   - /opt/chefdk/bin/chef --version
   - /opt/chefdk/bin/cookstyle --version
   - /opt/chefdk/bin/foodcritic --version
-  - /opt/chefdk/bin/chef exec ruby -v
 
 script:
   - KITCHEN_LOCAL_YAML=.kitchen.dokken.yml /opt/chefdk/bin/kitchen verify ${TEST}
