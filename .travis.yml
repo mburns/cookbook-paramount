@@ -2,7 +2,7 @@ sudo: required
 services: docker
 dist: trusty
 language: ruby
-rvm: 2.3.6
+rvm: 2.4.2
 
 addons:
   apt:
@@ -35,8 +35,8 @@ env:
   - TEST=web-ubuntu-1604
 
 before_install:
-  - gem install bundler
-  - bundle install
+  - /opt/chefdk/bin/chef exec gem install bundler
+  # - /opt/chefdk/bin/chef exec bundle install
 
 before_script:
   - sudo iptables -L DOCKER || ( echo 'DOCKER iptables chain missing' ; sudo iptables -N DOCKER )

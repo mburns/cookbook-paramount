@@ -3,7 +3,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.3.6'
+ruby '2.4.2'
 
 gem 'berkshelf', '~> 6.3'
 gem 'chef', '~> 12.15.19'
