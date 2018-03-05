@@ -30,12 +30,17 @@ env:
   - TEST=email-ubuntu-1604
   - TEST=web-ubuntu-1604
 
+before_install:
+  - gem install bundler
+  - bundle install
+
 before_script:
   - sudo iptables -L DOCKER || ( echo 'DOCKER iptables chain missing' ; sudo iptables -N DOCKER )
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
   - /opt/chefdk/bin/chef --version
   - /opt/chefdk/bin/cookstyle --version
   - /opt/chefdk/bin/foodcritic --version
+  - gem install bundler
 
 script:
   - KITCHEN_LOCAL_YAML=.kitchen.dokken.yml /opt/chefdk/bin/kitchen verify ${TEST}
