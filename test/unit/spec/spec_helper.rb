@@ -13,8 +13,8 @@ require 'fauxhai'
 # require 'simplecov'
 # SimpleCov.start
 
-require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+# require 'codecov'
+# SimpleCov.formatter = SimpleCov::Formatter::Codecov
 
 at_exit { ChefSpec::Coverage.report! }
 
