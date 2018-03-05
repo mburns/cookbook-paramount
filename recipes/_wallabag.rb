@@ -8,7 +8,6 @@
 
 Chef::Log.info("[CLOUD] :: #{recipe_name}")
 
-
 %w(
   curl
   php-tidy
