@@ -11,6 +11,10 @@ addons:
     packages:
       - chefdk
 
+branches:
+  only:
+    master
+
 cache:
   directories:
     - $HOME/.berkshelf/
