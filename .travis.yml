@@ -55,9 +55,9 @@ matrix:
   include:
     - script:
       # - /opt/chefdk/bin/chef exec delivery local all
-      - rspec test/unit/spec/
-      - cookstyle --display-cop-names --extra-details
-      - foodcritic .
+      - /opt/chefdk/bin/chef exec rspec test/unit/spec/
+      - /opt/chefdk/bin/chef exec cookstyle --display-cop-names --extra-details
+      - /opt/chefdk/bin/chef exec foodcritic .
       env: UNIT_AND_LINT=1
   allow_failures:
     env:
