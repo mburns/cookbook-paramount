@@ -43,7 +43,7 @@ group 'vmail' do
   append true
 end
 
-apt_update if node['platform_family'] == 'debian'
+apt_update 'update apt' if node['platform_family'] == 'debian'
 
 # include_recipe 'postgresql'
 
