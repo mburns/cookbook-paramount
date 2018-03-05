@@ -18,7 +18,7 @@ cookbook 'postgresql', '~> 6.1.1'
 
 ## Cloud
 cookbook 'djbdns', '~> 5.0'
-cookbook 'prosody', '~> 0.5'
+cookbook 'prosody', github: 'mburns/chef-prosody', branch: 'patch-1'
 # cookbook 'owncloud', github: 'mburns/owncloud-cookbook'
 cookbook 'ucspi-tcp'
 cookbook 'znc', '~> 0.0.1'

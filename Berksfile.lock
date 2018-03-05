@@ -57,7 +57,10 @@ DEPENDENCIES
   poise-service (~> 1.5)
   postfix (~> 5.2.1)
   postgresql (~> 6.1.1)
-  prosody (~> 0.5)
+  prosody
+    git: https://github.com/mburns/chef-prosody.git
+    revision: 60588cdb5277552b90e7324ba5c93ee7c122a425
+    branch: patch-1
   rackspace_monitoring
   rkhunter (~> 0.2)
   rsyslog (~> 6.0)
