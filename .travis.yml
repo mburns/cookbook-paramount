@@ -44,7 +44,7 @@ before_script:
   - /opt/chefdk/bin/chef --version
   - /opt/chefdk/bin/cookstyle --version
   - /opt/chefdk/bin/foodcritic --version
-  - gem install bundler
+  - /opt/chefdk/bin/chef exec ruby -v
 
 script:
   - KITCHEN_LOCAL_YAML=.kitchen.dokken.yml /opt/chefdk/bin/kitchen verify ${TEST}
