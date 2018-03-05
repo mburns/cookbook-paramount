@@ -18,20 +18,16 @@ cache:
     - berks-cookbooks/
 
 env:
+  - TEST=default-ubuntu-1404
+  - TEST=email-ubuntu-1404
+  - TEST=cloud-ubuntu-1404
+  - TEST=multimedia-ubuntu-1404
+  - TEST=web-ubuntu-1404
+
   - TEST=default-centos-7
   - TEST=default-debian-8
-  - TEST=default-debian-9
-  - TEST=default-ubuntu-1404
   - TEST=default-ubuntu-1604
-
-  - TEST=cloud-ubuntu-1404
-
-  - TEST=email-ubuntu-1404
   - TEST=email-ubuntu-1604
-
-  - TEST=multimedia-ubuntu-1404
-
-  - TEST=web-ubuntu-1404
   - TEST=web-ubuntu-1604
 
 before_script:
