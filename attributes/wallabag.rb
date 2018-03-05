@@ -6,4 +6,4 @@
 # License:: Apache License, Version 2.0
 #
 
-default['wallabage']['version'] = '2.3.2'
+default['wallabag']['version'] = '2.3.2'
