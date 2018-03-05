@@ -8,6 +8,8 @@
 
 Chef::Log.info("[EMAIL] :: #{recipe_name}")
 
+apt_update
+
 package 'postgrey'
 
 template '/etc/default/postgrey' do
