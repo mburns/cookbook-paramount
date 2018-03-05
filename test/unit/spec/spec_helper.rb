@@ -44,7 +44,7 @@ def stub_resources
   stub_command('test -d /etc/php5/fpm/pool.d || mkdir -p /etc/php5/fpm/pool.d').and_return true
   stub_command('test -d /etc/php-fpm.d || mkdir -p /etc/php-fpm.d').and_return true
 
-  stub_command("/usr/bin/test /etc/alternatives/mta -ef /usr/sbin/sendmail.postfix").and_return true
+  stub_command('/usr/bin/test /etc/alternatives/mta -ef /usr/sbin/sendmail.postfix').and_return true
 
   stub_command('ls /var/lib/postgresql/9.3/main/recovery.conf').and_return true
 
