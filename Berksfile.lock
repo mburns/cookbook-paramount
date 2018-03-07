@@ -55,7 +55,7 @@ DEPENDENCIES
   php-fpm
   plexapp (~> 1.0.0)
   poise-service (~> 1.5)
-  postfix (~> 5.2.1)
+  postfix (~> 5.2)
   postgresql (~> 6.1.1)
   prosody
     git: https://github.com/mburns/chef-prosody.git
@@ -143,7 +143,7 @@ GRAPH
     build-essential (>= 0.0.0)
     runit (>= 1.6.0)
     ucspi-tcp (>= 0.0.0)
-  docker (4.0.1)
+  docker (4.0.2)
   dovecot (3.2.1)
     ohai (~> 4.0)
   dpkg_autostart (0.2.0)
