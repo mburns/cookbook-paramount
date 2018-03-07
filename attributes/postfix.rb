@@ -17,6 +17,8 @@ rescue StandardError
   'example.com'
 end
 
+include_attribute 'postfix::default'
+
 default['postfix']['main']['inet_interfaces'] = 'all'
 default['postfix']['main']['milter_protocol'] = 2
 default['postfix']['main']['milter_default_action'] = 'accept'
@@ -29,7 +31,7 @@ default['postfix']['main']['smtp_sasl_auth_enable'] = 'yes'
 default['postfix']['main']['smtp_sasl_security_options'] = 'keep'
 
 # default['postfix']['master']['cyrus']['active'] = true
-default['postfix']['master']['maildrop']['active'] = true
+# default['postfix']['master']['maildrop']['active'] = false
 
 default['postfix']['sasl']['smtp_sasl_user_name'] = node['paramount']['user']
 
