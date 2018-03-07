@@ -24,7 +24,7 @@ cookbook 'ucspi-tcp'
 cookbook 'znc', '~> 0.0.1'
 
 ## Email
-cookbook 'clamav', github: 'RoboticCheese/clamav-chef'
+cookbook 'clamav', github: 'mburns/clamav-chef', branch: 'patch-1' # TODO : RoboticCheese/clamav-chef
 cookbook 'dovecot', '~> 3.2'
 cookbook 'dspam', github: 'mburns/chef-dspam'
 cookbook 'opendkim', '~> 2.0'
