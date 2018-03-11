@@ -31,7 +31,7 @@ default['postfix']['main']['smtp_sasl_auth_enable'] = 'yes'
 default['postfix']['main']['smtp_sasl_security_options'] = 'keep'
 
 # default['postfix']['master']['cyrus']['active'] = true
-# default['postfix']['master']['maildrop']['active'] = false
+default['postfix']['master']['maildrop']['active'] = false
 
 default['postfix']['sasl']['smtp_sasl_user_name'] = node['paramount']['user']
 
