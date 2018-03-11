@@ -85,6 +85,11 @@ suites:
   - name: email
     run_list:
     - recipe[test::email]
+    attributes:
+      postfix:
+        master:
+          maildrop:
+            active: false
   - name: multimedia
     run_list:
     - recipe[test::multimedia]
