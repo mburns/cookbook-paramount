@@ -90,6 +90,8 @@ suites:
         master:
           maildrop:
             active: false
+          cyrus:
+            active: false
   - name: multimedia
     run_list:
     - recipe[test::multimedia]
