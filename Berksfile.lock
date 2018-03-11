@@ -59,7 +59,8 @@ DEPENDENCIES
   postfix (~> 5.2)
   postfixadmin
     git: https://github.com/mburns/postfixadmin-cookbook.git
-    revision: c26d24a4b6efc8e9bd4c1a2e5a8c494e61752427
+    revision: 2ff9025f97ee73d66ffaa78c169debd17b23ea13
+    branch: relax-perms
   postgresql (~> 6.1.1)
   prosody
     git: https://github.com/mburns/chef-prosody.git
