@@ -92,6 +92,7 @@ suites:
             active: false
           cyrus:
             active: false
+        sender_canonical_map_entries: {}
   - name: multimedia
     run_list:
     - recipe[test::multimedia]
