@@ -36,4 +36,3 @@ default['postfix']['master']['maildrop']['active'] = false
 default['postfix']['sasl']['smtp_sasl_user_name'] = node['paramount']['user']
 
 default['postfix']['sender_canonical_map_entries'] = {}
-# default['postfix']['sender_canonical_map_entries'] = []
