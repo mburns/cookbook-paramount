@@ -19,9 +19,9 @@ describe 'paramount::_postgresql' do
             @chef_run.converge(described_recipe)
           end
 
-          it 'converges successfully' do
-            expect { :chef_run }.to_not raise_error
-          end
+          # it 'converges successfully' do
+          #   expect { :chef_run }.to_not raise_error
+          # end
         end
       end
     end
