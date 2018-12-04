@@ -60,3 +60,7 @@ group :integration do
   gem 'kitchen-docker'
   gem 'test-kitchen'
 end
+gem 'ffi', '>= 1.9.24'
+gem 'nokogiri', '>= 1.8.5'
+gem 'rack', '>= 2.0.6'
+gem 'rubyzip', '>= 1.2.2'
